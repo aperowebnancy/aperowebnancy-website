@@ -1,15 +1,34 @@
 {
-  "name": "aperowebnancy-website",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "9.5.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
-  }
+    "name": "aperowebnancy-website",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint .",
+        "format": "prettier --write --check \"**/*.+(js|md|json)\""
+    },
+    "dependencies": {
+        "next": "9.5.2",
+        "prop-types": "^15.7.2",
+        "react": "16.13.1",
+        "react-dom": "16.13.1"
+    },
+    "devDependencies": {
+        "eslint": "^7.6.0",
+        "eslint-config-zyhou": "^0.0.6",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.11",
+        "prettier": "^2.0.5"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": "eslint",
+        "*.{js,json,md}": "prettier --write"
+    }
 }

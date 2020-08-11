@@ -1,0 +1,4 @@
+{
+    "extends": ["zyhou", "zyhou/react"],
+    "rules": {}
+}
