@@ -10,7 +10,7 @@ export default function Home() {
             </Head>
 
             <main>
-                <h1>Welcome to Apéro Web Nancy</h1>
+                <h1 className="text-5xl text-center">Welcome to Apéro Web Nancy</h1>
             </main>
         </div>
     );
