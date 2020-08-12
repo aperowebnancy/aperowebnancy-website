@@ -5,7 +5,7 @@
 [![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/aperowebnancy/aperowebnancy-website/blob/main/.github/CODE_OF_CONDUCT.md)
 [![MIT License](https://img.shields.io/github/license/aperowebnancy/aperowebnancy-website?style=flat-square)](https://github.com/aperowebnancy/aperowebnancy-website/blob/main/LICENSE)
 
-[![Tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FAperoWebNancy)](https://twitter.com/intent/tweet?url=https%3A%2F%2Faperowebnancy.netlify.app%2F&text=Venez%20voir%20le%20site%20web%20du%20Meetup%20Ap%E9ro%20Web%20Nancy&hashtags=%23aperowebnancy)
+[![Tweet](https://img.shields.io/twitter/url/https/github.com/aperowebnancy/aperowebnancy-website.svg?style=social)](https://twitter.com/intent/tweet?text=Venez%20voir%20le%20site%20du%20Meetup%20%23aperowebnancy%20https%3a%2f%2faperowebnancy.netlify.com%f0%9f%91%8d) ![Discord](https://img.shields.io/discord/714470969418317915?style=flat-square)
 
 Les "Apéros Web Nancy" réunissent, une fois par mois, les développeurs Web et App Mobile de la région dans le but de partager leurs dernières trouvailles. Cette initative existe depuis 2014.
 
