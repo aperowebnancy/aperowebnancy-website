@@ -17,15 +17,15 @@ export const Header = () => (
                 <div className="md:col-span-8 items-center flex justify-between md:justify-end space-x-8 h-16">
                     <div className="flex items-center space-x-8">
                         <Link href="/">
-                            <a className="leading-6 font-medium">FAQ</a>
+                            <a>FAQ</a>
                         </Link>
 
                         <Link href="/">
-                            <a className="leading-6 font-medium">Les speakers</a>
+                            <a>Les speakers</a>
                         </Link>
 
                         <Link href="/">
-                            <a className="leading-6 font-medium">Les talks</a>
+                            <a>Les talks</a>
                         </Link>
 
                         <a href={siteConfig.repoUrl} target="_blank" rel="noopener noreferrer">

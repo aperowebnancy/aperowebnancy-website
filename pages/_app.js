@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -17,9 +18,10 @@ function MyApp({ Component, pageProps }) {
             </Head>
             <div className="bg-gray-50 h-full min-h-full">
                 <Header />
-                <main className="py-20 container mx-auto">
+                <main className="pt-20">
                     <Component {...pageProps} />
                 </main>
+                <Footer />
             </div>
         </>
     );
