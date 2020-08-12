@@ -41,7 +41,7 @@ Et c'est très simple :
 
 -   Si vous ne savez pas trop par où commencer, vous pouvez jeter un coup d'oeil aux [issues](https://github.com/aperowebnancy/aperowebnancy-website/issues): elles décrivent les taches à réaliser classées par type (éditorial, code, design, integration, seo ...),
 -   Une fois que vous savez quoi faire, vous pouvez consulter [le guide du contributeur](https://github.com/aperowebnancy/aperowebnancy-website/blob/main/.github/CONTRIBUTING.md) pour vous lancer.
-    Et si vous ne trouvez toujours pas quoi faire dans les issues existantes et/ou que vous avez d'autres idées, n'hésitez pas à créer [une nouvelle issue](https://github.com/aperowebnancy/aperowebnancy-website/issues/new).
+    Et si vous ne trouvez toujours pas quoi faire dans les issues existantes et/ou que vous avez d'autres idées, n'hésitez pas à créer [une nouvelle issue](https://github.com/aperowebnancy/aperowebnancy-website/issues/new/choose).
 
 ## Inspiration
 

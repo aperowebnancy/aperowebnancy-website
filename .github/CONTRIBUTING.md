@@ -42,7 +42,7 @@ Beaucoup de choses, l’écriture de code n’étant pas loin s’en faut le fac
 
 Cela peut être plus simple d'écrire une ligne de code bien interprétée par une machine qu'un texte qui transmet correctement un message à une communauté. Or c'est l'objectif de ce projet. Vous êtes donc les bienvenues pour nous aider à rédiger les contenus des pages **des anciens talk**, de compléter **les fiches des speakers**, d'améliorer **la FAQ**.
 
-Vous trouverez plus de détails sur ces besoins dans [les issues taguées `content`](https://github.com/aperowebnancy/aperowebnancy-website/labels/content).
+Vous trouverez plus de détails sur ces besoins dans les issues taguées [`content`](https://github.com/aperowebnancy/aperowebnancy-website/labels/content).
 
 Et plus globalement, tout le contenu qui n'est pas du code mérite certainement votre attention. Par exemple, vous aurez peut-être identifié des phrases à rallonge, des fautes d'orthographe ou de grammaire sur cette page "guide de contribution" ? Si c'est le cas, n'hésitez pas à faire une petite pull request avec vos corrections.
 
@@ -68,13 +68,13 @@ Et si vraiment vous détester le Javascript, il y aurait sûrement moyen de mett
 
 Les issues concernant les bugs sont associées au tag [`bug`](https://github.com/aperowebnancy/aperowebnancy-website/labels/bug).
 
-Il parait que chaque bug relevé sauve un chaton. Donc, si à chaque bug rencontré quelqu'un [ouvre une issue](https://github.com/aperowebnancy/aperowebnancy-website/issues/new) avec le label `bug`, ce seront des familles entières de chats qui seront sauvées.
+Il parait que chaque bug relevé sauve un chaton. Donc, si à chaque bug rencontré quelqu'un [ouvre une issue](https://github.com/aperowebnancy/aperowebnancy-website/issues/new?assignees=&labels=&template=bug_report.md&title=) avec le label `bug`, ce seront des familles entières de chats qui seront sauvées.
 
 ### Suggérer des améliorations ou de nouvelles fonctionnalités
 
 Les fonctionnalités imaginées pour atteindres les différents objectifs sont présentes dans les [issues](https://github.com/aperowebnancy/aperowebnancy-website/issues). Mais elles vous semblent peut-être inabouties ou insuffisantes ?
 
-Dans ce cas, ouvrez une nouvelle issue de type `feature` en décrivant bien votre idée.
+Dans ce cas, [ouvrez une nouvelle issue](https://github.com/aperowebnancy/aperowebnancy-website/issues/new?assignees=&labels=&template=feature_request.md&title=) de type `feature` en décrivant bien votre idée.
 
 ## Installer le projet
 
