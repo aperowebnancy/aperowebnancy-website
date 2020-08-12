@@ -12,7 +12,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <section className="space-y-8 container mx-auto">
+            <section className="space-y-8  container mx-auto">
                 <h1 className="sr-only">Meetup Apéro Web Nancy</h1>
                 <h2 className="text-2xl md:text-3xl text-red-600 font-bold">
                     Le meetup mensuel autour des technos du Web
@@ -102,31 +102,35 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="bg-gray-100 border-t border-gray-200 mt-20 p-10 flex items-center flex-wrap justify-around">
-                <a
-                    className="bg-red-600 text-white p-10 m-2 rounded-lg text-3xl flex flex-col max-w-sm font-bold h-48"
-                    href={`mailto:${siteConfig.emailContact}`}
-                >
-                    Nous contacter
-                    <span className="text-base font-medium">
-                        Une idée ? Une envie ? Prenez contact avec nous.
-                    </span>
-                </a>
-                <a
-                    className="bg-red-600 text-white p-10 m-2 rounded-lg text-3xl flex flex-col max-w-sm font-bold h-48"
-                    href={`mailto:${siteConfig.emailMeetup}`}
-                >
-                    Proposer un sujet
-                    <span className="text-base font-medium">
-                        Vous souhaitez faire un talk de 5-20min ? Contactez-nous.
-                    </span>
-                </a>
+            <section className="bg-gray-100 border-t border-gray-200 mt-20 p-10">
+                <div className="container mx-auto flex items-center flex-wrap justify-around">
+                    <a
+                        className="bg-red-600 text-white p-10 m-2 rounded-lg text-3xl flex flex-col max-w-sm font-bold h-48"
+                        href={`mailto:${siteConfig.emailContact}`}
+                    >
+                        Nous contacter
+                        <span className="text-base font-medium">
+                            Une idée ? Une envie ? Prenez contact avec nous.
+                        </span>
+                    </a>
+                    <a
+                        className="bg-red-600 text-white p-10 m-2 rounded-lg text-3xl flex flex-col max-w-sm font-bold h-48"
+                        href={`mailto:${siteConfig.emailMeetup}`}
+                    >
+                        Proposer un sujet
+                        <span className="text-base font-medium">
+                            Vous souhaitez faire un talk de 5-20min ? Contactez-nous.
+                        </span>
+                    </a>
+                </div>
             </section>
 
             <section className="bg-gray-200 border-t border-gray-300 p-10">
-                <h2 className="text-1xl md:text-2xl font-bold">Dernier meetups</h2>
+                <div className=" container mx-auto">
+                    <h2 className="text-1xl md:text-2xl font-bold">Dernier meetups</h2>
 
-                <p>A venir...</p>
+                    <p>A venir...</p>
+                </div>
             </section>
         </>
     );
