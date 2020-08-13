@@ -109,6 +109,7 @@ Voici l'organisation des principaux répertoires du projet :
 -   **lib** : On trouve ici tous les fichiers qui concerne qui ne sont ni des composants ni des pages...
 -   **pages** : On trouve ici toutes les pages du site.
 -   **public** : Vous y trouverez donc les fichiers statiques finaux tels qu'ils seront mis en ligne.
+-   **speakers** : On trouve ici les fichiers propres au speakers.
 -   **styles** : On trouve ici les fichiers propres au styles.
 
 ## Faire une Pull request
