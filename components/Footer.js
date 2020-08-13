@@ -2,7 +2,7 @@ import * as React from 'react';
 import { siteConfig } from '../lib/siteConfig';
 
 export const Footer = () => (
-    <footer className="bg-gray-50 border-t border-gray-200 container mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <footer className="bg-gray-50 container mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
             <div className="flex md:order-2">
                 <a

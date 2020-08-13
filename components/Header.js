@@ -16,7 +16,7 @@ export const Header = () => (
                 </div>
                 <div className="md:col-span-8 items-center flex justify-between md:justify-end space-x-8 h-16">
                     <div className="flex items-center space-x-8">
-                        <Link href="/">
+                        <Link href="/faq">
                             <a>FAQ</a>
                         </Link>
 
