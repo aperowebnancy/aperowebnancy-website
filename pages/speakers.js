@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import matter from 'gray-matter';
 
+import { siteConfig } from '../lib/siteConfig';
+
 const socials = {
     twitter: (
         <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -33,7 +35,15 @@ const socials = {
     ),
 };
 
-const Speaker = ({ firstName, lastName, resume, picture, links, slug }) => {
+const youSpeaker = {
+    firstName: 'Vous',
+    lastName: '',
+    resume: 'Rejoignez les autres speakers ! Proposez un sujet de talk.',
+    picture: 'you.png',
+    links: null,
+};
+
+const Speaker = ({ firstName, lastName, resume, picture, links }) => {
     const completeName = `${firstName} ${lastName}`;
     const pathPicture = `/speakers/${picture}`;
 
@@ -43,18 +53,19 @@ const Speaker = ({ firstName, lastName, resume, picture, links, slug }) => {
             <h3 className="text-gray-800 font-bold capitalize">{completeName}</h3>
             <p className="text-gray-700 text-base">{resume}</p>
             <div className="py-3">
-                {links.map(({ url, title }) => {
-                    return (
-                        <a
-                            key={`${slug}-${title}`}
-                            href={url}
-                            className="inline-block text-gray-600 mr-2"
-                            rel="noopener noreferrer"
-                        >
-                            {socials[title]}
-                        </a>
-                    );
-                })}
+                {links &&
+                    links.map(({ url, title }) => {
+                        return (
+                            <a
+                                key={`${url}-${title}`}
+                                href={url}
+                                className="inline-block text-gray-600 mr-2"
+                                rel="noopener noreferrer"
+                            >
+                                {socials[title]}
+                            </a>
+                        );
+                    })}
             </div>
         </article>
     );
@@ -66,7 +77,6 @@ Speaker.propTypes = {
     resume: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
     links: PropTypes.array.isRequired,
-    slug: PropTypes.string.isRequired,
 };
 
 export default function Speakers({ speakers }) {
@@ -77,9 +87,15 @@ export default function Speakers({ speakers }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <section className="container mx-auto flex flex-wrap justify-center">
+                <a href={`mailto:${siteConfig.emailMeetup}`}>
+                    <Speaker key="you-start" {...youSpeaker} />
+                </a>
                 {speakers.map(({ slug, frontMatter }) => (
-                    <Speaker key={slug} slug={slug} {...frontMatter} />
+                    <Speaker key={slug} {...frontMatter} />
                 ))}
+                <a href={`mailto:${siteConfig.emailMeetup}`}>
+                    <Speaker key="you-end" {...youSpeaker} />
+                </a>
             </section>
         </>
     );
