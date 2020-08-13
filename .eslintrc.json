@@ -1,5 +1,5 @@
 {
-    "extends": ["zyhou", "zyhou/react"],
+    "extends": ["zyhou", "zyhou/react", "plugin:mdx/recommended"],
     "rules": {
         "jsx-a11y/anchor-is-valid": [
             "error",
@@ -8,6 +8,7 @@
                 "specialLink": ["hrefLeft", "hrefRight"],
                 "aspects": ["invalidHref", "preferButton"]
             }
-        ]
+        ],
+        "no-unused-vars": [2, { "ignoreRestSiblings": true, "varsIgnorePattern": "^_" }]
     }
 }

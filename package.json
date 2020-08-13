@@ -9,9 +9,13 @@
         "start": "next start",
         "doctoc": "doctoc ./.github/CONTRIBUTING.md",
         "lint": "eslint .",
-        "format": "prettier --write --check \"**/*.+(js|md|json)\""
+        "format": "prettier --write --check \"**/*.+(js|md|mdx|json)\""
     },
     "dependencies": {
+        "@mdx-js/loader": "^1.6.16",
+        "@next/mdx": "^9.5.2",
+        "fast-glob": "^3.2.4",
+        "gray-matter": "^4.0.2",
         "next": "9.5.2",
         "prop-types": "^15.7.2",
         "react": "16.13.1",
@@ -21,6 +25,7 @@
         "doctoc": "^1.4.0",
         "eslint": "^7.6.0",
         "eslint-config-zyhou": "^0.0.6",
+        "eslint-plugin-mdx": "^1.8.1",
         "husky": "^4.2.5",
         "lint-staged": "^10.2.11",
         "postcss-preset-env": "^6.7.0",
