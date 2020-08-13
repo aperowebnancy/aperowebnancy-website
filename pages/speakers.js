@@ -76,7 +76,7 @@ export default function Speakers({ speakers }) {
                 <title>Proposez un talk | Apéro Web Nancy</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <section className="container mx-auto flex flex-wrap">
+            <section className="container mx-auto flex flex-wrap justify-center">
                 {speakers.map(({ slug, frontMatter }) => (
                     <Speaker key={slug} slug={slug} {...frontMatter} />
                 ))}
