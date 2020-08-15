@@ -28,7 +28,7 @@ export default function FAQ() {
                 </h3>
                 <p>
                     <strong>Apéro Web Nancy</strong> est une communauté de{' '}
-                    <strong>développeurs Nancéien</strong>. Cette communauté organise des
+                    <strong>développeurs Nancéiens</strong>. Cette communauté organise des
                     rencontres, généralement <strong>le dernier mercredi du mois</strong>, avec un
                     sujet technique lié à notre métier présenté par un <strong>speaker</strong> de
                     la communauté.
@@ -40,8 +40,8 @@ export default function FAQ() {
 
                 <h3 className="text-xl md:text-2xl text-gray-600 font-bold">Qui sommes nous ?</h3>
                 <p>
-                    Apéro Web Nancy ne vivent que par l&apos;investissement des membres de sa
-                    communauté et ne dépendent d&apos;aucune entreprise. Nous souhaitons rester{' '}
+                    Apéro Web Nancy ne vit que par l&apos;investissement des membres de sa
+                    communauté et ne dépend d&apos;aucune entreprise. Nous souhaitons rester{' '}
                     <strong>libres</strong> et <strong>indépendants</strong>.
                 </p>
                 <p>Les organisateurs actuels sont : {currentOrganizer}.</p>
@@ -57,6 +57,7 @@ export default function FAQ() {
                         </a>
                     </li>
                     <li>participer à l’organisation</li>
+                    <li>assister à un meetup</li>
                     <li>proposer des améliorations sur le site web</li>
                 </ul>
                 <p>

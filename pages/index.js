@@ -12,7 +12,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <section className="space-y-8  container mx-auto">
+            <section className="space-y-8 container mx-auto">
                 <h1 className="sr-only">Meetup Apéro Web Nancy</h1>
                 <h2 className="text-2xl md:text-3xl text-red-600 font-bold">
                     Le meetup mensuel autour des technos du Web
