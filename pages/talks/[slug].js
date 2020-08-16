@@ -38,7 +38,7 @@ const mdxComponents = {
     Youtube,
 };
 
-export default function Talk({ mdxHtml, frontMatter, speakers }) {
+export default function Talk({ mdxHtml, frontMatter, speakers, next, previous }) {
     return (
         <>
             <Head>
@@ -131,10 +131,13 @@ export default function Talk({ mdxHtml, frontMatter, speakers }) {
                     </div>
                     <section className="text-sm font-medium leading-5 divide-y divide-gray-200 xl:col-start-1 xl:row-start-2">
                         <div className="space-y-8 py-8">
-                            <div className="text-teal-500 hover:text-teal-600">
+                            <h2 className="text-xs tracking-wide uppercase text-gray-500">
+                                Annonces
+                            </h2>
+                            <div className="text-gray-500 flex space-x-2">
                                 <a
                                     href={frontMatter.meetupLink}
-                                    className="text-gray-600 flex items-center"
+                                    className="flex items-center hover:text-gray-600"
                                     rel="noopener noreferrer"
                                 >
                                     <svg
@@ -161,8 +164,50 @@ export default function Talk({ mdxHtml, frontMatter, speakers }) {
                                     </svg>
                                     Meetup
                                 </a>
+                                <a
+                                    href={frontMatter.twitterLink}
+                                    className="flex items-center hover:text-gray-600"
+                                    rel="noopener noreferrer"
+                                >
+                                    <svg
+                                        className="h-6 w-6"
+                                        fill="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                                    </svg>
+                                    Twitter
+                                </a>
                             </div>
                         </div>
+                        {(next || previous) && (
+                            <div className="space-y-8 py-8">
+                                {next && (
+                                    <div>
+                                        <h2 className="text-xs tracking-wide uppercase text-gray-500">
+                                            Talk Suivant
+                                        </h2>
+                                        <div className="text-red-500 hover:text-red-600">
+                                            <Link href={next.slug}>
+                                                <a>{next.title}</a>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                )}
+                                {previous && (
+                                    <div>
+                                        <h2 className="text-xs tracking-wide uppercase text-gray-500">
+                                            Talk Précédent
+                                        </h2>
+                                        <div className="text-red-500 hover:text-red-600">
+                                            <Link href={previous.slug}>
+                                                <a>{previous.title}</a>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
                         <div className="pt-8">
                             <Link href="/talks">
                                 <a className="text-red-500 hover:text-red-600">
@@ -181,6 +226,14 @@ Talk.propTypes = {
     mdxHtml: PropTypes.string.isRequired,
     frontMatter: PropTypes.object.isRequired,
     speakers: PropTypes.array.isRequired,
+    previous: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+    }),
+    next: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+    }),
 };
 
 export async function getStaticPaths() {
@@ -241,6 +294,8 @@ export async function getStaticProps({ params: { slug } }) {
                 ...data,
             },
             speakers: orderedByLastName,
+            previous: null,
+            next: null,
         },
     };
 }
