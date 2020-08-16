@@ -1,9 +1,12 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-    purge: ['./components/**/*.js', './pages/**/*.js'],
+    purge: ['./components/**/*.js', './pages/**/*.js', './talks/*.mdx'],
     theme: {
         extend: {
+            spacing: {
+                '9/16': '56.25%',
+            },
             fontFamily: {
                 sans: ['Lato', ...defaultTheme.fontFamily.sans],
                 serif: ['Lato', ...defaultTheme.fontFamily.serif],

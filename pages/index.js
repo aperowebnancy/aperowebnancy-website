@@ -1,10 +1,14 @@
+import fs from 'fs';
+import glob from 'fast-glob';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Link from 'next/link';
+import matter from 'gray-matter';
 
 import { siteConfig } from '../lib/siteConfig';
 
-export default function Home() {
+export default function Home({ talks }) {
     return (
         <>
             <Head>
@@ -84,7 +88,7 @@ export default function Home() {
                             </svg>
                             Twitter
                         </a>
-                        <a className="p-2" href={siteConfig.yourubeUrl} rel="noopener noreferrer">
+                        <a className="p-2" href={siteConfig.youtubeUrl} rel="noopener noreferrer">
                             <svg
                                 className="inline-block h-5 pr-1"
                                 viewBox="0 0 512 512"
@@ -125,13 +129,74 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="bg-gray-200 border-t border-gray-300 p-10">
-                <div className=" container mx-auto">
-                    <h2 className="text-1xl md:text-2xl font-bold">Dernier meetups</h2>
+            <section className="border-t border-gray-300 pt-10 container mx-auto">
+                <h2 className="text-1xl md:text-2xl font-bold">Dernier talks</h2>
 
-                    <p>A venir...</p>
+                <ul className="m-4">
+                    {talks.map(({ date, slug, frontMatter }) => {
+                        return (
+                            <li key={slug} className="pb-4">
+                                <Link href={slug}>
+                                    <a className="text-gray-900 flex">
+                                        <span className="sr-only">Published on</span>
+                                        <time dateTime={date} className="mr-1">
+                                            {new Date(date).toLocaleDateString('fr-FR', {
+                                                year: 'numeric',
+                                                month: 'short',
+                                                day: 'numeric',
+                                            })}
+                                        </time>
+                                        - <h2 className="ml-1">{frontMatter.title}</h2>
+                                    </a>
+                                </Link>
+                            </li>
+                        );
+                    })}
+                </ul>
+                <div className="text-base leading-6 font-medium flex">
+                    <Link href="/talks">
+                        <a className="text-red-500 hover:text-red-600">Voir les talks &rarr;</a>
+                    </Link>
                 </div>
             </section>
         </>
     );
+}
+
+Home.propTypes = {
+    talks: PropTypes.arrayOf(
+        PropTypes.shape({
+            date: PropTypes.string.isRequired,
+            slug: PropTypes.string.isRequired,
+            frontMatter: PropTypes.object.isRequired,
+        }),
+    ).isRequired,
+};
+
+export async function getStaticProps() {
+    const files = glob.sync('talks/*.mdx');
+
+    const allMdx = files.map((file) => {
+        const [_, filename] = file.split('/');
+        const [date, slug] = filename.replace('.mdx', '').split('_');
+
+        const mdxSource = fs.readFileSync(file);
+        const { data } = matter(mdxSource);
+
+        return {
+            date,
+            slug: `talks/${slug}`,
+            frontMatter: data,
+        };
+    });
+
+    const orderedByDate = allMdx.sort((a, z) => {
+        return new Date(z.date) - new Date(a.date);
+    });
+
+    return {
+        props: {
+            talks: orderedByDate.slice(0, 5),
+        },
+    };
 }
