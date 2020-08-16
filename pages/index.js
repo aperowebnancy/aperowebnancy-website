@@ -132,14 +132,14 @@ export default function Home({ talks }) {
             <section className="border-t border-gray-300 pt-10 container mx-auto">
                 <h2 className="text-1xl md:text-2xl font-bold">Dernier talks</h2>
 
-                <ul className="m-4">
+                <ul className="my-4">
                     {talks.map(({ date, slug, frontMatter }) => {
                         return (
                             <li key={slug} className="pb-4">
                                 <Link href={slug}>
                                     <a className="text-gray-900 flex">
-                                        <span className="sr-only">Published on</span>
-                                        <time dateTime={date} className="mr-1">
+                                        <span className="sr-only">Publié le</span>
+                                        <time dateTime={date} className="mr-1 whitespace-no-wrap">
                                             {new Date(date).toLocaleDateString('fr-FR', {
                                                 year: 'numeric',
                                                 month: 'short',

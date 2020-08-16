@@ -46,7 +46,7 @@ export default function Talks({ talks }) {
                             <li key={slug} className="py-12">
                                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
                                     <dl>
-                                        <dt className="sr-only">Published on</dt>
+                                        <dt className="sr-only">Publié le</dt>
                                         <dd className="text-base leading-6 font-medium">
                                             <time dateTime={date}>
                                                 {new Date(date).toLocaleDateString('fr-FR', {

@@ -50,7 +50,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers }) {
                     <div className="space-y-1 text-center">
                         <dl className="space-y-10">
                             <div>
-                                <dt className="sr-only">Published on</dt>
+                                <dt className="sr-only">Publié le</dt>
                                 <dd className="text-base leading-6 font-medium text-gray-500">
                                     <time dateTime={frontMatter.date}>
                                         {new Date(frontMatter.date).toLocaleDateString('fr-FR', {
