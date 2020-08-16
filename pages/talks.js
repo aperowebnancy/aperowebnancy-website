@@ -22,10 +22,8 @@ export default function Talks({ talks }) {
                     </h1>
                     <p className="text-lg leading-7 text-gray-700">
                         Voici quelques-uns des sujets que nous avons abordés lors de rencontres
-                        précédentes. Si vous souhaitez participer en donnant une conférence, ne vous
-                        inquiétez pas trop si nous avons déjà abordé le sujet. De nouvelles
-                        personnes nous rejoignent chaque jour et de nombreux sujets méritent
-                        d&apos;être revus.
+                        précédentes. Un sujet? N&apos;hésitez pas à nous contacter pour nous le
+                        soumettre.
                     </p>
                     <p className="text-lg leading-7 text-gray-700">
                         Récemment, nous avons également enregistré et publié les conférences sur
@@ -46,7 +44,7 @@ export default function Talks({ talks }) {
                             <li key={slug} className="py-12">
                                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
                                     <dl>
-                                        <dt className="sr-only">Publié le</dt>
+                                        <dt className="sr-only">Published on</dt>
                                         <dd className="text-base leading-6 font-medium">
                                             <time dateTime={date}>
                                                 {new Date(date).toLocaleDateString('fr-FR', {

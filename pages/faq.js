@@ -38,7 +38,7 @@ export default function FAQ() {
                     une bière avec nous !
                 </p>
 
-                <h3 className="text-xl md:text-2xl text-gray-600 font-bold">Qui sommes nous ?</h3>
+                <h3 className="text-xl md:text-2xl text-gray-600 font-bold">Qui sommes-nous ?</h3>
                 <p>
                     Apéro Web Nancy ne vit que par l&apos;investissement des membres de sa
                     communauté et ne dépend d&apos;aucune entreprise. Nous souhaitons rester{' '}

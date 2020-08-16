@@ -109,18 +109,18 @@ export default function Home({ talks }) {
             <section className="bg-gray-100 border-t border-gray-200 mt-20 p-10">
                 <div className="container mx-auto flex items-center flex-wrap justify-around">
                     <a
-                        className="bg-red-600 text-white p-10 m-2 rounded-lg text-3xl flex flex-col max-w-sm font-bold h-48"
+                        className="bg-red-600 text-white p-10 m-2 rounded-lg text-3xl flex flex-col max-w-sm font-bold"
                         rel="noopener noreferrer"
                         target="_blank"
                         href={siteConfig.mailchimpUrl}
                     >
                         Newsletters
                         <span className="text-base font-medium">
-                            Inscrivez vous pour recevoir de nos nouvelles !
+                            Inscrivezvous pour recevoir de nos nouvelles !
                         </span>
                     </a>
                     <a
-                        className="bg-red-600 text-white p-10 m-2 rounded-lg text-3xl flex flex-col max-w-sm font-bold h-48"
+                        className="bg-red-600 text-white p-10 m-2 rounded-lg text-3xl flex flex-col max-w-sm font-bold"
                         href={`mailto:${siteConfig.emailMeetup}`}
                     >
                         Proposer un sujet
@@ -132,7 +132,7 @@ export default function Home({ talks }) {
             </section>
 
             <section className="border-t border-gray-300 pt-10 container mx-auto">
-                <h2 className="text-1xl md:text-2xl font-bold">Dernier talks</h2>
+                <h2 className="text-1xl md:text-2xl font-bold">Derniers talks</h2>
 
                 <ul className="my-4">
                     {talks.map(({ date, slug, frontMatter }) => {

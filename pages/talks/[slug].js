@@ -124,7 +124,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers }) {
                                     rel="noopener noreferrer"
                                     className="font-medium text-red-500 hover:text-red-600"
                                 >
-                                    Vient en discuter sur Discord &rarr;
+                                    Viens en discuter sur Discord &rarr;
                                 </a>
                             </p>
                         </div>
