@@ -24,7 +24,7 @@ export const Header = () => (
                             <a>Les speakers</a>
                         </Link>
 
-                        <Link href="/">
+                        <Link href="/talks">
                             <a>Les talks</a>
                         </Link>
 

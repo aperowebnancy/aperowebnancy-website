@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { siteConfig } from '../lib/siteConfig';
 
 export const Footer = () => (
@@ -61,7 +62,7 @@ export const Footer = () => (
                     </svg>
                 </a>
                 <a
-                    href={siteConfig.yourubeUrl}
+                    href={siteConfig.youtubeUrl}
                     className="ml-6 text-gray-500 hover:text-gray-600"
                     rel="noopener noreferrer"
                 >
