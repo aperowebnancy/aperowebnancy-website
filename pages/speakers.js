@@ -51,7 +51,7 @@ const Speaker = ({ firstName, lastName, resume, picture, links }) => {
         <article className="flex items-center flex-col max-w-sm rounded overflow-hidden shadow-lg m-2 px-6 py-4 w-64 h-64 text-sm md:text-base">
             <img className="object-cover rounded-full w-3/5" src={pathPicture} alt={completeName} />
             <h3 className="text-gray-800 font-bold capitalize">{completeName}</h3>
-            <p className="text-gray-700 text-base">{resume}</p>
+            <p className="text-gray-700 text-base tracking-tight">{resume}</p>
             <div className="py-3">
                 {links &&
                     links.map(({ url, title }) => {
@@ -76,7 +76,7 @@ Speaker.propTypes = {
     lastName: PropTypes.string.isRequired,
     resume: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
-    links: PropTypes.array.isRequired,
+    links: PropTypes.array,
 };
 
 export default function Speakers({ speakers }) {
