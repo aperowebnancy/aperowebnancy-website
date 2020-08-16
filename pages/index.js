@@ -110,11 +110,13 @@ export default function Home({ talks }) {
                 <div className="container mx-auto flex items-center flex-wrap justify-around">
                     <a
                         className="bg-red-600 text-white p-10 m-2 rounded-lg text-3xl flex flex-col max-w-sm font-bold h-48"
-                        href={`mailto:${siteConfig.emailContact}`}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={siteConfig.mailchimpUrl}
                     >
-                        Nous contacter
+                        Newsletters
                         <span className="text-base font-medium">
-                            Une idée ? Une envie ? Prenez contact avec nous.
+                            Inscrivez vous pour recevoir de nos nouvelles !
                         </span>
                     </a>
                     <a
