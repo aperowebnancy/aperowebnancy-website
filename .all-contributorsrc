@@ -1,24 +1,33 @@
 {
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "contributors": [
-    {
-      "login": "Kmaschta",
-      "name": "Kmaschta",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/1819833?v=4",
-      "profile": "https://www.kmaschta.me",
-      "contributions": [
-        "blog"
-      ]
-    }
-  ],
-  "contributorsPerLine": 7,
-  "projectName": "aperowebnancy-website",
-  "projectOwner": "aperowebnancy",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "skipCi": true
+    "files": [
+        "README.md"
+    ],
+    "imageSize": 100,
+    "commit": false,
+    "contributors": [
+        {
+            "login": "Kmaschta",
+            "name": "Kmaschta",
+            "avatar_url": "https://avatars2.githubusercontent.com/u/1819833?v=4",
+            "profile": "https://www.kmaschta.me",
+            "contributions": [
+                "blog"
+            ]
+        },
+        {
+            "login": "zyhou",
+            "name": "Maxime Richard",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2212144?v=4",
+            "profile": "https://maximerichard.dev/",
+            "contributions": [
+                "infra"
+            ]
+        }
+    ],
+    "contributorsPerLine": 7,
+    "projectName": "aperowebnancy-website",
+    "projectOwner": "aperowebnancy",
+    "repoType": "github",
+    "repoHost": "https://github.com",
+    "skipCi": true
 }

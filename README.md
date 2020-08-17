@@ -1,9 +1,5 @@
 # Meetup Apéro Web Nancy
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b795fee0-6ac9-434f-b4f1-245ab763f543/deploy-status)](https://app.netlify.com/sites/aperowebnancy/deploys)
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
