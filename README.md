@@ -2,7 +2,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b795fee0-6ac9-434f-b4f1-245ab763f543/deploy-status)](https://app.netlify.com/sites/aperowebnancy/deploys)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)<!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/aperowebnancy/aperowebnancy-website/blob/main/.github/CODE_OF_CONDUCT.md)
 [![MIT License](https://img.shields.io/github/license/aperowebnancy/aperowebnancy-website?style=flat-square)](https://github.com/aperowebnancy/aperowebnancy-website/blob/main/LICENSE)
 
