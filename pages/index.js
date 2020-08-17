@@ -116,7 +116,7 @@ export default function Home({ talks }) {
                     >
                         Newsletters
                         <span className="text-base font-medium">
-                            Inscrivezvous pour recevoir de nos nouvelles !
+                            Inscrivez-vous pour recevoir de nos nouvelles !
                         </span>
                     </a>
                     <a
