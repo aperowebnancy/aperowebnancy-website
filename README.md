@@ -31,7 +31,7 @@ Les rencontres ont lieu une fois par mois, et c’est très chouette. Mais cette
 
 Tout le code est donc disponible à tous via Github. N’importe qui peut y participer, et c’est ce **partage qui fait l’essence des Apéro Web Nancy**. Ce sera peut-être pour certains l’occasion de faire un projet concret en JavaScript : en effet cette refonte s’appuie sur [Next.js](https://nextjs.org/), parce que... et bien il fallait choisir.
 
-Mais pas que. Next.js est un Framkework React.js qui fait aussi générateur de site statique permettant de publier facilement un site à partir d’articles formatés en Markdown. C projet permet également de se frotter à [Tailwindcss](https://tailwindcss.com/), [MDX](https://mdxjs.com/) et à la mise en place de tests. Et pour ceux qui ne voudraient pas installer un Node sur leur machine, pas de problème, le projet peut tourner intégralement sous Docker. (Soon...)
+Mais pas que. Next.js est un Framkework React.js qui fait aussi générateur de site statique permettant de publier facilement un site à partir d’articles formatés en Markdown. Ce projet permet également de se frotter à [Tailwindcss](https://tailwindcss.com/), [MDX](https://mdxjs.com/) et à la mise en place de tests. Et pour ceux qui ne voudraient pas installer un Node sur leur machine, pas de problème, le projet peut tourner intégralement sous Docker. (Soon...)
 
 ## Vous souhaitez participer ?
 
