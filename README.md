@@ -3,7 +3,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b795fee0-6ac9-434f-b4f1-245ab763f543/deploy-status)](https://app.netlify.com/sites/aperowebnancy/deploys)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/aperowebnancy/aperowebnancy-website/blob/main/.github/CODE_OF_CONDUCT.md)
 [![MIT License](https://img.shields.io/github/license/aperowebnancy/aperowebnancy-website?style=flat-square)](https://github.com/aperowebnancy/aperowebnancy-website/blob/main/LICENSE)
@@ -63,6 +63,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://www.kmaschta.me"><img src="https://avatars2.githubusercontent.com/u/1819833?v=4" width="100px;" alt=""/><br /><sub><b>Kmaschta</b></sub></a><br /><a href="#blog-Kmaschta" title="Blogposts">📝</a></td>
     <td align="center"><a href="https://maximerichard.dev/"><img src="https://avatars3.githubusercontent.com/u/2212144?v=4" width="100px;" alt=""/><br /><sub><b>Maxime Richard</b></sub></a><br /><a href="#infra-zyhou" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#a11y-zyhou" title="Accessibility">️️️️♿️</a> <a href="#blog-zyhou" title="Blogposts">📝</a> <a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=zyhou" title="Code">💻</a> <a href="#content-zyhou" title="Content">🖋</a> <a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=zyhou" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://euregan.github.io"><img src="https://avatars1.githubusercontent.com/u/6170695?v=4" width="100px;" alt=""/><br /><sub><b>Valentin Manceaux-Panot</b></sub></a><br /><a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=Euregan" title="Documentation">📖</a></td>
   </tr>
 </table>
 
