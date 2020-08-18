@@ -5,6 +5,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
+        "postbuild": "next-sitemap",
         "export": "next export",
         "start": "next start",
         "doctoc": "doctoc ./.github/CONTRIBUTING.md",
@@ -30,6 +31,7 @@
         "eslint-plugin-mdx": "^1.8.1",
         "husky": "^4.2.5",
         "lint-staged": "^10.2.11",
+        "next-sitemap": "^1.0.17",
         "postcss-preset-env": "^6.7.0",
         "prettier": "^2.0.5",
         "tailwindcss": "^1.6.2"
