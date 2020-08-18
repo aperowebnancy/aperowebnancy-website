@@ -102,10 +102,12 @@ export default function Speakers({ speakers }) {
 }
 
 Speakers.propTypes = {
-    speakers: PropTypes.arrayOf({
-        slug: PropTypes.string.isRequired,
-        frontMatter: PropTypes.object.isRequired,
-    }).isRequired,
+    speakers: PropTypes.arrayOf(
+        PropTypes.shape({
+            slug: PropTypes.string.isRequired,
+            frontMatter: PropTypes.object.isRequired,
+        }),
+    ).isRequired,
 };
 
 export async function getStaticProps() {
