@@ -257,34 +257,46 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-    const file = glob.sync(`talks/*_${slug}.mdx`)[0];
-    if (!file) {
+    // Retrieve all talks
+    const files = glob.sync('talks/*.mdx');
+
+    // Find index of current talk
+    const fileIndex = files.findIndex((file) => file.lastIndexOf(slug) !== -1);
+    if (fileIndex === -1) {
         console.warn('No MDX file found for slug');
     }
 
+    // Retrieve content and meta data of current talk
+    const file = files[fileIndex];
     const [date] = file.split('/')[1].split('_');
-
     const mdxSource = fs.readFileSync(file);
     const { content, data } = matter(mdxSource);
 
+    // Retrieve speakers informations
     const searchSpeakersRegex =
         data.speakers.length > 1 ? `{${data.speakers.join(',')}}` : `${data.speakers[0]}`;
     const speakersFiles = glob.sync(`speakers/${searchSpeakersRegex}.mdx`);
-
     const speakers = speakersFiles.map((file) => {
-        const [_, filename] = file.split('/');
-        const [slug] = filename.split('.');
-
-        const mdxSource = fs.readFileSync(file);
-        const { data } = matter(mdxSource);
-
+        const src = fs.readFileSync(file);
+        const { data } = matter(src);
         return {
-            slug,
+            slug: file.split('/')[1].split('.')[0],
             ...data,
         };
     });
-
     const orderedByLastName = speakers.sort((a, z) => a.lastName.localeCompare(z.lastName));
+
+    // Retrieve previous and next talks from current talk
+    const getLinkInfos = (file) => {
+        const src = fs.readFileSync(file);
+        const { data } = matter(src);
+        return {
+            slug: file.split('/')[1].split('_')[1].split('.')[0],
+            title: data.title,
+        };
+    };
+    const previous = fileIndex > 0 ? getLinkInfos(files[fileIndex - 1]) : null;
+    const next = fileIndex < files.length - 1 ? getLinkInfos(files[fileIndex + 1]) : null;
 
     return {
         props: {
@@ -294,8 +306,8 @@ export async function getStaticProps({ params: { slug } }) {
                 ...data,
             },
             speakers: orderedByLastName,
-            previous: null,
-            next: null,
+            previous,
+            next,
         },
     };
 }
