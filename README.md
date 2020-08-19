@@ -1,14 +1,11 @@
-# Meetup Apéro Web Nancy
+# [Site Web Apéro Web Nancy](https://aperowebnancy.netlify.app/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b795fee0-6ac9-434f-b4f1-245ab763f543/deploy-status)](https://app.netlify.com/sites/aperowebnancy/deploys)
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-[![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/aperowebnancy/aperowebnancy-website/blob/main/.github/CODE_OF_CONDUCT.md)
+[![All Contributors](https://img.shields.io/github/all-contributors/aperowebnancy/aperowebnancy-website/main?color=orange&style=flat-square)](#contributors-) [![PRs Welcome](https://img.shields.io/badge/prs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/aperowebnancy/aperowebnancy-website/blob/main/.github/CODE_OF_CONDUCT.md)
 [![MIT License](https://img.shields.io/github/license/aperowebnancy/aperowebnancy-website?style=flat-square)](https://github.com/aperowebnancy/aperowebnancy-website/blob/main/LICENSE)
 
-[![Tweet](https://img.shields.io/twitter/url/https/github.com/aperowebnancy/aperowebnancy-website.svg?style=social)](https://twitter.com/intent/tweet?text=Venez%20voir%20le%20site%20du%20Meetup%20%23aperowebnancy%20https%3a%2f%2faperowebnancy.netlify.com%f0%9f%91%8d) [![Discord](https://img.shields.io/discord/714470969418317915?style=flat-square)](https://discord.com/invite/Q8X8Bxq)
+[![Tweet](https://img.shields.io/twitter/url/https/github.com/aperowebnancy/aperowebnancy-website.svg?style=social)](https://twitter.com/intent/tweet?text=Venez%20voir%20le%20site%20du%20Meetup%20%23aperowebnancy%20https%3a%2f%2faperowebnancy.netlify.com%f0%9f%91%8d) [![Discord](https://img.shields.io/discord/714470969418317915.svg?color=7389D8&labelColor=6A7EC2&logo=discord&logoColor=ffffff&style=flat-square)](https://discord.com/invite/Q8X8Bxq) [![Meetup](https://img.shields.io/static/v1?logo=meetup&style=flat-square&style=?style=flat-square&message=Apéro%20Web%20Nancy&color=ED1C40&labelColor=ED1C40&logoColor=ffffff&label=Meetup)](https://www.meetup.com/fr-FR/Aperos-Web-Nancy/)
 
 Les "Apéros Web Nancy" réunissent, une fois par mois, les développeurs Web et App Mobile de la région dans le but de partager leurs dernières trouvailles. Cette initiative existe depuis 2014.
 
@@ -70,6 +67,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
