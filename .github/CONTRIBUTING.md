@@ -161,5 +161,4 @@ Et Nancy regorge d'autres rencontres susceptibles d'aider au projet : AFUP Lorra
 
 ### La Roadmap
 
-Ce projet est un projet uniquement lié aux bonnes volontés.  Nous avons un travail à côté et il n'est donc pas question de mettre en place un Roadmap.
-
+Ce projet est un projet uniquement lié aux bonnes volontés. Nous avons un travail à côté et il n'est donc pas question de mettre en place un Roadmap.

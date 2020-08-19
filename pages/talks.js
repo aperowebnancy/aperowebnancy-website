@@ -2,19 +2,19 @@ import fs from 'fs';
 import glob from 'fast-glob';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import Link from 'next/link';
 import matter from 'gray-matter';
 
 import { siteConfig } from '../lib/siteConfig';
+import { Seo } from '../components/Seo';
 
 export default function Talks({ talks }) {
     return (
         <>
-            <Head>
-                <title>Précédent talk | Apéro Web Nancy</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <Seo
+                title="Précédent talk"
+                description="Retrouvez la liste de tout les talks du Meetup Apéro Web Nancy"
+            />
             <div className="container mx-auto">
                 <div className="pt-6 pb-8 space-y-2 md:space-y-5">
                     <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">

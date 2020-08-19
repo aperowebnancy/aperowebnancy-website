@@ -15,6 +15,9 @@ function MyApp({ Component, pageProps }) {
                     href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
                     rel="stylesheet"
                 />
+
+                <title>Apéro Web Nancy</title>
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="bg-gray-50 h-full min-h-full">
                 <Header />

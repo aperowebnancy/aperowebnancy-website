@@ -2,20 +2,16 @@ import fs from 'fs';
 import glob from 'fast-glob';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import Link from 'next/link';
 import matter from 'gray-matter';
 
 import { siteConfig } from '../lib/siteConfig';
+import { Seo } from '../components/Seo';
 
 export default function Home({ talks }) {
     return (
         <>
-            <Head>
-                <title>Apéro Web Nancy</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
+            <Seo />
             <section className="space-y-8 container mx-auto">
                 <h1 className="sr-only">Meetup Apéro Web Nancy</h1>
                 <h2 className="text-2xl md:text-3xl text-red-600 font-bold">
