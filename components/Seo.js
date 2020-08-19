@@ -32,7 +32,7 @@ export const Seo = ({ title, description, image, jsonLdArray = [] }) => {
             '@context': 'https://schema.org',
             '@type': 'Organization',
             url: siteConfig.siteUrl,
-            logo: image,
+            logo: 'logo.png',
         },
         ...jsonLdArray,
     ];

@@ -142,7 +142,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                     <li key={speaker.slug} className="flex items-center space-x-2">
                                         <img
                                             src={`/speakers/${speaker.picture}`}
-                                            alt=""
+                                            alt={`${speaker.firstName} ${speaker.lastName}`}
                                             className="w-10 h-10 rounded-full"
                                         />
                                         <dl className="text-sm font-medium leading-5 whitespace-no-wrap">
