@@ -71,7 +71,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, next, previous })
                     </div>
                 </section>
                 <div
-                    className="divide-y xl:divide-y-0 divide-gray-200 xl:grid xl:grid-cols-4 xl:col-gap-6"
+                    className="divide-y xl:divide-y-0 divide-gray-200 xl:grid xl:grid-cols-4 xl:gap-x-6"
                     style={{ gridTemplateRows: 'auto 1fr' }}
                 >
                     <dl className="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200">
