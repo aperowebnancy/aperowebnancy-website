@@ -1,7 +1,7 @@
 import React from 'react';
-import Head from 'next/head';
 
 import { siteConfig } from '../lib/siteConfig';
+import { Seo } from '../components/Seo';
 
 const currentOrganizer = Object.entries(siteConfig.currentOrganizer).map(([name, link], index) => (
     <React.Fragment key={name}>
@@ -12,13 +12,55 @@ const currentOrganizer = Object.entries(siteConfig.currentOrganizer).map(([name,
     </React.Fragment>
 ));
 
+// https://developers.google.com/search/docs/data-types/faqpage
+const faqJsonLd = [
+    {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+            {
+                '@type': 'Question',
+                name: `Qu’est-ce que c'est ?`,
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: `<strong>Apéro Web Nancy</strong> est une communauté de <strong>développeurs Nancéiens</strong>.
+                        Cette communauté organise des rencontres, généralement <strong>le dernier mercredi du mois</strong>,
+                        avec un sujet technique lié à notre métier présenté par un <strong>speaker</strong> de la communauté.
+                        Ouvert à tous les étudiants ou professionnels, n'hésitez pas à venir boire une bière avec nous !`,
+                },
+            },
+            {
+                '@type': 'Question',
+                name: `Qui sommes-nous ?`,
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: `Apéro Web Nancy ne vit que par l'investissement des membres de sa
+                        communauté et ne dépend d&apos;aucune entreprise. Nous souhaitons rester
+                        <strong>libres</strong> et <strong>indépendants</strong>`,
+                },
+            },
+            {
+                '@type': 'Question',
+                name: ` Comment contribuer ?`,
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: `<strong>proposer un talk</strong>, <strong>participer à l’organisation</strong>,
+                        <strong>assister à un meetup</strong>, <strong>proposer des améliorations sur le site web</strong>.
+                        Le plus simple est de venir faire un petit coucou sur le discord ou tout simplement venir nous parler pendant un événement !`,
+                },
+            },
+        ],
+    },
+];
+
 export default function FAQ() {
     return (
         <>
-            <Head>
-                <title>Foire aux questions | Apéro Web Nancy</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <Seo
+                title="Foire aux questions"
+                description="Une question sur le Meetup Apéro Web Nancy, retrouvez ici une réponse"
+                jsonLdArray={faqJsonLd}
+            />
 
             <section className="container mx-auto space-y-4">
                 <h1 className="text-3xl md:text-4xl text-red-600 font-bold">Foire aux questions</h1>

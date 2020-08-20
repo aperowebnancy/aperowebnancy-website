@@ -10,6 +10,7 @@ import MDX from '@mdx-js/runtime';
 
 import { socials } from '../speakers';
 import { siteConfig } from '../../lib/siteConfig';
+import { Seo } from '../../components/Seo';
 
 const Youtube = ({ videoId, title }) => (
     <figure>
@@ -38,13 +39,72 @@ const mdxComponents = {
     Youtube,
 };
 
-export default function Talk({ mdxHtml, frontMatter, speakers, next, previous }) {
+const logoMeetup = `${siteConfig.siteUrl}/logo.png`;
+
+// https://developers.google.com/search/docs/data-types/article#non-amp
+// https://developers.google.com/search/docs/data-types/breadcrumb
+const getTalkJsonLd = ({ title, image, description, date, slug, speakers }) => [
+    {
+        '@context': 'http://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: title,
+                item: {
+                    '@id': `${siteConfig.siteUrl}/talks/${slug}`,
+                    name: title,
+                    image,
+                },
+            },
+        ],
+    },
+    {
+        '@context': 'http://schema.org',
+        '@type': 'BlogPosting',
+        url: `${siteConfig.siteUrl}/talks/${slug}`,
+        name: title,
+        alternateName: 'Apéro Web Nancy',
+        headline: title,
+        image: {
+            '@type': 'ImageObject',
+            url: image,
+        },
+        description,
+        author: speakers.map((s) => ({
+            '@type': 'Person',
+            familyName: s.lastName,
+            givenName: s.firstName,
+            name: `${s.firstName} ${s.lastName}`,
+        })),
+        publisher: {
+            '@type': 'Organization',
+            url: siteConfig.siteUrl,
+            logo: logoMeetup,
+            name: 'Apéro Web Nancy',
+        },
+        mainEntityOfPage: {
+            '@type': 'WebSite',
+            '@id': siteConfig.siteUrl,
+        },
+        datePublished: date,
+    },
+];
+
+export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previous }) {
+    const talkJsonLd = getTalkJsonLd({ ...frontMatter, slug, image: '', speakers });
     return (
         <>
+            <Seo
+                title={frontMatter.title}
+                description={frontMatter.description}
+                jsonLdArray={talkJsonLd}
+            />
             <Head>
-                <title>{frontMatter.title} | Apéro Web Nancy</title>
-                <link rel="icon" href="/favicon.ico" />
+                <meta property="og:type" content="article" key="ogtype" />
             </Head>
+
             <article className="container mx-auto xl:divide-y xl:divide-gray-200">
                 <section className="pt-6 xl:pb-10">
                     <div className="space-y-1 text-center">
@@ -82,7 +142,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, next, previous })
                                     <li key={speaker.slug} className="flex items-center space-x-2">
                                         <img
                                             src={`/speakers/${speaker.picture}`}
-                                            alt=""
+                                            alt={`${speaker.firstName} ${speaker.lastName}`}
                                             className="w-10 h-10 rounded-full"
                                         />
                                         <dl className="text-sm font-medium leading-5 whitespace-no-wrap">
@@ -226,6 +286,7 @@ Talk.propTypes = {
     mdxHtml: PropTypes.string.isRequired,
     frontMatter: PropTypes.object.isRequired,
     speakers: PropTypes.array.isRequired,
+    slug: PropTypes.string.isRequired,
     previous: PropTypes.shape({
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
@@ -305,6 +366,7 @@ export async function getStaticProps({ params: { slug } }) {
                 date,
                 ...data,
             },
+            slug,
             speakers: orderedByLastName,
             previous,
             next,

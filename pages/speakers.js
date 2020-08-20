@@ -6,6 +6,7 @@ import Head from 'next/head';
 import matter from 'gray-matter';
 
 import { siteConfig } from '../lib/siteConfig';
+import { Seo } from '../components/Seo';
 
 export const socials = {
     twitter: (
@@ -82,9 +83,9 @@ Speaker.propTypes = {
 export default function Speakers({ speakers }) {
     return (
         <>
+            <Seo title="Proposez un talk " description="Venez animer un Meetup Apéro Web Nancy" />
             <Head>
                 <title>Proposez un talk | Apéro Web Nancy</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
             <section className="container mx-auto flex flex-wrap justify-center">
                 <a href={`mailto:${siteConfig.emailMeetup}`}>

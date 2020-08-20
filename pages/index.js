@@ -2,20 +2,16 @@ import fs from 'fs';
 import glob from 'fast-glob';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import Link from 'next/link';
 import matter from 'gray-matter';
 
 import { siteConfig } from '../lib/siteConfig';
+import { Seo } from '../components/Seo';
 
 export default function Home({ talks }) {
     return (
         <>
-            <Head>
-                <title>Apéro Web Nancy</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
+            <Seo />
             <section className="space-y-8 container mx-auto">
                 <h1 className="sr-only">Meetup Apéro Web Nancy</h1>
                 <h2 className="text-2xl md:text-3xl text-red-600 font-bold">
@@ -60,9 +56,9 @@ export default function Home({ talks }) {
                         </a>
                     </Link>
 
-                    <p className="m-2">
+                    <p className="m-2 space-x-2">
                         <span>Rejoignez aussi la communauté sur</span>
-                        <a className="p-2" href={siteConfig.discordUrl} rel="noopener noreferrer">
+                        <a href={siteConfig.discordUrl} rel="noopener noreferrer">
                             <svg
                                 className="inline-block h-5 pr-1"
                                 viewBox="0 0 24 24"
@@ -75,7 +71,7 @@ export default function Home({ talks }) {
                             </svg>
                             Discord
                         </a>
-                        <a className="p-2" href={siteConfig.twitterUrl} rel="noopener noreferrer">
+                        <a href={siteConfig.twitterUrl} rel="noopener noreferrer">
                             <svg
                                 className="inline-block h-5 pr-1"
                                 viewBox="0 0 512 512"
@@ -88,7 +84,7 @@ export default function Home({ talks }) {
                             </svg>
                             Twitter
                         </a>
-                        <a className="p-2" href={siteConfig.youtubeUrl} rel="noopener noreferrer">
+                        <a href={siteConfig.youtubeUrl} rel="noopener noreferrer">
                             <svg
                                 className="inline-block h-5 pr-1"
                                 viewBox="0 0 512 512"
