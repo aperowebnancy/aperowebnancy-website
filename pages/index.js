@@ -56,9 +56,9 @@ export default function Home({ talks }) {
                         </a>
                     </Link>
 
-                    <p className="m-2">
+                    <p className="m-2 space-x-2">
                         <span>Rejoignez aussi la communauté sur</span>
-                        <a className="p-2" href={siteConfig.discordUrl} rel="noopener noreferrer">
+                        <a href={siteConfig.discordUrl} rel="noopener noreferrer">
                             <svg
                                 className="inline-block h-5 pr-1"
                                 viewBox="0 0 24 24"
@@ -71,7 +71,7 @@ export default function Home({ talks }) {
                             </svg>
                             Discord
                         </a>
-                        <a className="p-2" href={siteConfig.twitterUrl} rel="noopener noreferrer">
+                        <a href={siteConfig.twitterUrl} rel="noopener noreferrer">
                             <svg
                                 className="inline-block h-5 pr-1"
                                 viewBox="0 0 512 512"
@@ -84,7 +84,7 @@ export default function Home({ talks }) {
                             </svg>
                             Twitter
                         </a>
-                        <a className="p-2" href={siteConfig.youtubeUrl} rel="noopener noreferrer">
+                        <a href={siteConfig.youtubeUrl} rel="noopener noreferrer">
                             <svg
                                 className="inline-block h-5 pr-1"
                                 viewBox="0 0 512 512"
