@@ -8,6 +8,7 @@ import { siteConfig } from '../lib/siteConfig';
 export const Seo = ({ title, description, image, jsonLdArray = [] }) => {
     const router = useRouter();
 
+    const metaTitle = title || 'Apéro Web Nancy';
     const metaDescription =
         description || 'Apéro Web Nancy est un meetup mensuel autour des technos du Web à Nancy';
     const metaImage = `${siteConfig.siteUrl}/${image || 'logo.png'}`;
@@ -46,24 +47,21 @@ export const Seo = ({ title, description, image, jsonLdArray = [] }) => {
             {/* OpenGraph tags */}
             <meta property="og:locale" content="fr_FR" />
             <meta property="og:type" content="website" key="ogtype" />
-            <meta property="og:title" content={title} />
+            <meta property="og:title" content={metaTitle} />
             <meta property="og:description" content={metaDescription} />
             <meta property="og:image" content={metaImage} />
-            <meta property="og:url" content={siteConfig.siteUrl} />
-            <meta
-                property="og:url"
-                key="og:url"
-                content={`${siteConfig.siteUrl}${router.pathname}`}
-            />
+            <meta property="og:image:alt" content={metaTitle} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <meta property="og:url" content={`${siteConfig.siteUrl}${router.asPath}`} />
 
             {/* Twitter Card tags */}
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:creator" content={siteConfig.twitterHandle} />
-            <meta name="twitter:title" content={title} />
+            <meta name="twitter:creator" content={siteConfig.twitterHandler} />
+            <meta name="twitter:title" content={metaTitle} />
             <meta name="twitter:description" content={metaDescription} />
             <meta name="twitter:image" content={metaImage} />
-            <meta name="twitter:url" content={siteConfig.siteUrl} />
-
+            <meta name="twitter:url" content={`${siteConfig.siteUrl}${router.asPath}`} />
             {/* Schema.org JSON-LD */}
             <script type="application/ld+json">{JSON.stringify(jsonLdSchema)}</script>
 
