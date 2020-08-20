@@ -39,7 +39,7 @@ const mdxComponents = {
     Youtube,
 };
 
-const logoMeetup = '';
+const logoMeetup = `${siteConfig.siteUrl}/logo.png`;
 
 // https://developers.google.com/search/docs/data-types/article#non-amp
 // https://developers.google.com/search/docs/data-types/breadcrumb
