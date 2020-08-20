@@ -10,7 +10,7 @@ export const Seo = ({ title, description, image, jsonLdArray = [] }) => {
 
     const metaDescription =
         description || 'Apéro Web Nancy est un meetup mensuel autour des technos du Web à Nancy';
-    const metaImage = image || 'vercel.svg';
+    const metaImage = `${siteConfig.siteUrl}/${image || 'logo.png'}`;
 
     // https://schema.org/WebSite
     const jsonLdSchema = [
@@ -32,7 +32,7 @@ export const Seo = ({ title, description, image, jsonLdArray = [] }) => {
             '@context': 'https://schema.org',
             '@type': 'Organization',
             url: siteConfig.siteUrl,
-            logo: 'logo.png',
+            logo: `${siteConfig.siteUrl}/logo.png`,
         },
         ...jsonLdArray,
     ];
@@ -49,8 +49,6 @@ export const Seo = ({ title, description, image, jsonLdArray = [] }) => {
             <meta property="og:title" content={title} />
             <meta property="og:description" content={metaDescription} />
             <meta property="og:image" content={metaImage} />
-            <meta property="og:image:width" content="1200" />
-            <meta property="og:image:height" content="630" />
             <meta property="og:url" content={siteConfig.siteUrl} />
             <meta
                 property="og:url"
@@ -69,8 +67,14 @@ export const Seo = ({ title, description, image, jsonLdArray = [] }) => {
             {/* Schema.org JSON-LD */}
             <script type="application/ld+json">{JSON.stringify(jsonLdSchema)}</script>
 
-            <link rel="icon" type="image/x-icon" href="favicon.ico" />
-            <link rel="apple-touch-icon" href="favicon.ico" />
+            {/* Favicon & Images */}
+            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+            <link rel="manifest" href="/site.webmanifest" />
+            <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#df1717" />
+            <meta name="msapplication-TileColor" content="#2d89ef" />
+            <meta name="theme-color" content="#ffffff" />
         </Head>
     );
 };
