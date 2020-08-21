@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "postbuild": "next-sitemap",
-        "export": "next export",
+        "export": "next export && yarn build:rss",
+        "build:rss": "node ./.next/server/scripts/build-rss.js",
         "start": "next start",
         "doctoc": "doctoc ./.github/CONTRIBUTING.md",
         "lint": "eslint .",
@@ -34,6 +35,7 @@
         "next-sitemap": "^1.0.17",
         "postcss-preset-env": "^6.7.0",
         "prettier": "^2.0.5",
+        "rss": "^1.2.2",
         "tailwindcss": "^1.7.2"
     },
     "husky": {
