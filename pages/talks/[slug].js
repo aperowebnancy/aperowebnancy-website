@@ -92,8 +92,49 @@ const getTalkJsonLd = ({ title, image, description, date, slug, speakers }) => [
     },
 ];
 
+const isServerSide = () => typeof window === 'undefined';
+const isShareFeatureEnabled = () => navigator && navigator.share;
+
+const ShareMore = ({ title, slug }) => {
+    if (isServerSide() || !isShareFeatureEnabled()) {
+        return null;
+    }
+
+    const handleShare = async () => {
+        await navigator.share({
+            title: title,
+            url: `${siteConfig.siteUrl}/talks/${slug}`,
+        });
+    };
+
+    return (
+        <button onClick={handleShare}>
+            <svg
+                className="h-6 w-6"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 426.67 426.67"
+            >
+                <path d="M352 256c-23.98 0-45.13 11.57-58.8 29.2l-144.44-55.55c.15-1.9.57-3.72.57-5.65 0-3.59-.56-7.02-1.06-10.48l148.01-68.32c13.7 15.49 33.48 25.47 55.72 25.47 41.17 0 74.67-33.5 74.67-74.67S393.17 21.33 352 21.33 277.33 54.83 277.33 96c0 3.59.57 7.03 1.06 10.48l-148 68.32c-13.7-15.49-33.48-25.47-55.72-25.47C33.5 149.33 0 182.83 0 224s33.5 74.67 74.67 74.67c23.98 0 45.13-11.57 58.8-29.2l144.44 55.55c-.15 1.9-.58 3.71-.58 5.65 0 41.16 33.5 74.66 74.67 74.66s74.67-33.5 74.67-74.66c0-41.17-33.5-74.67-74.67-74.67z" />
+            </svg>
+        </button>
+    );
+};
+
+ShareMore.propTypes = {
+    slug: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+};
+
 export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previous }) {
     const talkJsonLd = getTalkJsonLd({ ...frontMatter, slug, image: '', speakers });
+
+    const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+        frontMatter.title,
+    )}&via=${siteConfig.twitterHandler.replace('@', '')}&url=${encodeURIComponent(
+        `${siteConfig.siteUrl}/talks/${slug}`,
+    )}`;
+
     return (
         <>
             <Seo
@@ -191,10 +232,8 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                     </div>
                     <section className="text-sm font-medium leading-5 divide-y divide-gray-200 xl:col-start-1 xl:row-start-2">
                         <div className="space-y-8 py-8">
-                            <h2 className="text-xs tracking-wide uppercase text-gray-500">
-                                Annonces
-                            </h2>
                             <div className="text-gray-500 flex space-x-2">
+                                <h2 className="tracking-wide text-gray-500">Annonces sur</h2>
                                 <a
                                     href={frontMatter.meetupLink}
                                     className="flex items-center hover:text-gray-600"
@@ -224,9 +263,13 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                     </svg>
                                     Meetup
                                 </a>
+                            </div>
+                            <div className="text-gray-500 flex space-x-2">
+                                <h2 className="tracking-wide text-gray-500">Partager sur</h2>
                                 <a
-                                    href={frontMatter.twitterLink}
+                                    href={twitterShareUrl}
                                     className="flex items-center hover:text-gray-600"
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <svg
@@ -238,6 +281,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                     </svg>
                                     Twitter
                                 </a>
+                                <ShareMore title={frontMatter.title} slug={slug} />
                             </div>
                         </div>
                         {(next || previous) && (
