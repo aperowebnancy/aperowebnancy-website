@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
                     href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
                     rel="stylesheet"
                 />
+                <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
             </Head>
             <div className="bg-gray-50 h-full min-h-full">
                 <Header />
