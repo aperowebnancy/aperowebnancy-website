@@ -26,7 +26,7 @@ const getAllTalks = () => {
 const feed = new RSS({
     title: 'Apéro Web Nancy Meetup',
     site_url: siteConfig.siteUrl,
-    feed_url: `${siteConfig.siteUrl}/feed.xml`,
+    feed_url: `${siteConfig.siteFeedUrl}`,
 });
 
 getAllTalks().forEach(({ date, slug, frontMatter }) => {

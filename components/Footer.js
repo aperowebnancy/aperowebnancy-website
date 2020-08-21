@@ -5,7 +5,23 @@ import { siteConfig } from '../lib/siteConfig';
 export const Footer = () => (
     <footer className="bg-gray-50 container mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
-            <div className="flex md:order-2 space-x-6">
+            <div className="flex items-center md:order-2 space-x-6">
+                <a
+                    href={siteConfig.siteFeedUrl}
+                    className="text-gray-500 hover:text-gray-600"
+                    rel="noopener noreferrer"
+                >
+                    <span className="sr-only">Flux RSS</span>
+                    <svg
+                        className="h-5 w-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M19.2 24A19.3 19.3 0 000 4.8V0c13.16 0 24 10.84 24 24h-4.8zM3.3 17.41a3.3 3.3 0 11-.02 6.6 3.3 3.3 0 01.01-6.6zM15.9 24h-4.66A11.3 11.3 0 000 12.76V8.09c8.73 0 15.9 7.18 15.9 15.91z" />
+                    </svg>
+                </a>
+
                 <a
                     href={siteConfig.mailchimpUrl}
                     className="text-gray-500 hover:text-gray-600"
