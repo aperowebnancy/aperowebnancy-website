@@ -86,7 +86,7 @@ export const Footer = () => (
                 <a
                     href={siteConfig.twitterUrl}
                     className="text-gray-500 hover:text-gray-600"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer me"
                 >
                     <span className="sr-only">Twitter</span>
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -112,7 +112,7 @@ export const Footer = () => (
                 <a
                     href={siteConfig.githubUrl}
                     className="text-gray-500 hover:text-gray-600"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer me"
                 >
                     <span className="sr-only">GitHub</span>
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
