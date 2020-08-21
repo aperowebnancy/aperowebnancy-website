@@ -102,7 +102,7 @@ const ShareMore = ({ title, slug }) => {
 
     const handleShare = async () => {
         await navigator.share({
-            title: title,
+            title,
             url: `${siteConfig.siteUrl}/talks/${slug}`,
         });
     };
@@ -233,7 +233,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                     <section className="text-sm font-medium leading-5 divide-y divide-gray-200 xl:col-start-1 xl:row-start-2">
                         <div className="space-y-8 py-8">
                             <div className="text-gray-500 flex space-x-2">
-                                <h2 className="tracking-wide text-gray-500">Annonces sur</h2>
+                                <h2 className="tracking-wide text-gray-500">Annonce sur</h2>
                                 <a
                                     href={frontMatter.meetupLink}
                                     className="flex items-center hover:text-gray-600"
