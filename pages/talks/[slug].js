@@ -137,6 +137,8 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
         `${siteConfig.siteUrl}/talks/${slug}`,
     )}`;
 
+    const githubTalkUrl = `https://github.com/aperowebnancy/aperowebnancy-website/blob/main/talks/${frontMatter.date}_${slug}.mdx`;
+
     return (
         <>
             <Seo
@@ -226,13 +228,13 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                         </div>
                         <div className="pt-6 pb-8 xl:pb-0">
                             <p>
-                                Tu veux parler de ce talk?{' '}
+                                Une faute ? Une amélioration ?{' '}
                                 <a
-                                    href={siteConfig.discordUrl}
+                                    href={githubTalkUrl}
                                     rel="noopener noreferrer"
                                     className="font-medium text-red-500 hover:text-red-600"
                                 >
-                                    Viens en discuter sur Discord &rarr;
+                                    Édite cette page &rarr;
                                 </a>
                             </p>
                         </div>
