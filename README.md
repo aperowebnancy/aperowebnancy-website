@@ -55,6 +55,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
   <tr>
@@ -62,12 +63,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://maximerichard.dev/"><img src="https://avatars3.githubusercontent.com/u/2212144?v=4" width="100px;" alt=""/><br /><sub><b>Maxime Richard</b></sub></a><br /><a href="#infra-zyhou" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#a11y-zyhou" title="Accessibility">️️️️♿️</a> <a href="#blog-zyhou" title="Blogposts">📝</a> <a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=zyhou" title="Code">💻</a> <a href="#content-zyhou" title="Content">🖋</a> <a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=zyhou" title="Documentation">📖</a></td>
     <td align="center"><a href="http://euregan.github.io"><img src="https://avatars1.githubusercontent.com/u/6170695?v=4" width="100px;" alt=""/><br /><sub><b>Valentin Manceaux-Panot</b></sub></a><br /><a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=Euregan" title="Documentation">📖</a></td>
     <td align="center"><a href="https://vaga.io"><img src="https://avatars2.githubusercontent.com/u/1078179?v=4" width="100px;" alt=""/><br /><sub><b>Fabien</b></sub></a><br /><a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=vaga" title="Code">💻</a></td>
+    <td align="center"><a href="http://zooly.dev"><img src="https://avatars1.githubusercontent.com/u/7328625?v=4" width="100px;" alt=""/><br /><sub><b>Hugo Torzuoli</b></sub></a><br /><a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=HZooly" title="Code">💻</a> <a href="#blog-HZooly" title="Blogposts">📝</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- prettier-ignore-end -->
 
