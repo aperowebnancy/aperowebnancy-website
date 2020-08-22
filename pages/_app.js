@@ -16,6 +16,10 @@ function MyApp({ Component, pageProps }) {
                     rel="stylesheet"
                 />
                 <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+                <meta
+                    name="google-site-verification"
+                    content="33EUCC-Zc5EVJc60ah7uEsU9Vps2Ysazfn0EhvDj4eY"
+                />
             </Head>
             <div className="bg-gray-50 h-full min-h-full">
                 <Header />
