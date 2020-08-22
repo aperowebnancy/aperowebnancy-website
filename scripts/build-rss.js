@@ -32,7 +32,7 @@ const feed = new RSS({
 getAllTalks().forEach(({ date, slug, frontMatter }) => {
     feed.item({
         date,
-        title: frontMatter.title,
+        title: `${frontMatter.title} #${frontMatter.edition}`,
         guid: slug,
         url: `${siteConfig.siteUrl}/${slug}`,
         description: frontMatter.description,

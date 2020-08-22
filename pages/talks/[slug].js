@@ -72,12 +72,14 @@ const getTalkJsonLd = ({ title, image, description, date, slug, speakers }) => [
             url: image,
         },
         description,
-        author: speakers.map((s) => ({
-            '@type': 'Person',
-            familyName: s.lastName,
-            givenName: s.firstName,
-            name: `${s.firstName} ${s.lastName}`,
-        })),
+        author: speakers
+            ? speakers.map((s) => ({
+                  '@type': 'Person',
+                  familyName: s.lastName,
+                  givenName: s.firstName,
+                  name: `${s.firstName} ${s.lastName}`,
+              }))
+            : null,
         publisher: {
             '@type': 'Organization',
             url: siteConfig.siteUrl,
@@ -135,6 +137,8 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
         `${siteConfig.siteUrl}/talks/${slug}`,
     )}`;
 
+    const githubTalkUrl = `https://github.com/aperowebnancy/aperowebnancy-website/blob/main/talks/${frontMatter.date}_${slug}.mdx`;
+
     return (
         <>
             <Seo
@@ -166,7 +170,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                         </dl>
                         <div>
                             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-                                {frontMatter.title}
+                                {frontMatter.title} #{frontMatter.edition}
                             </h1>
                         </div>
                     </div>
@@ -175,57 +179,62 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                     className="divide-y xl:divide-y-0 divide-gray-200 xl:grid xl:grid-cols-4 xl:gap-x-6"
                     style={{ gridTemplateRows: 'auto 1fr' }}
                 >
-                    <dl className="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200">
-                        <dt className="sr-only">Speakers</dt>
-                        <dd>
-                            <ul className="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
-                                {speakers.map((speaker) => (
-                                    <li key={speaker.slug} className="flex items-center space-x-2">
-                                        <img
-                                            src={`/speakers/${speaker.picture}`}
-                                            alt={`${speaker.firstName} ${speaker.lastName}`}
-                                            className="w-10 h-10 rounded-full"
-                                        />
-                                        <dl className="text-sm font-medium leading-5 whitespace-no-wrap">
-                                            <dt className="sr-only">Nom du Speaker</dt>
-                                            <dd className="text-gray-900">
-                                                {speaker.firstName} {speaker.lastName}
-                                            </dd>
-                                            <dt className="sr-only">Socials</dt>
-                                            <dd>
-                                                {speaker.links &&
-                                                    speaker.links.map(({ url, title }) => {
-                                                        return (
-                                                            <a
-                                                                key={`${url}-${title}`}
-                                                                href={url}
-                                                                className="inline-block text-gray-600 mr-2"
-                                                                rel="noopener noreferrer"
-                                                            >
-                                                                {socials[title]}
-                                                            </a>
-                                                        );
-                                                    })}
-                                            </dd>
-                                        </dl>
-                                    </li>
-                                ))}
-                            </ul>
-                        </dd>
-                    </dl>
+                    {speakers && (
+                        <dl className="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200">
+                            <dt className="sr-only">Speakers</dt>
+                            <dd>
+                                <ul className="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
+                                    {speakers.map((speaker) => (
+                                        <li
+                                            key={speaker.slug}
+                                            className="flex items-center space-x-2"
+                                        >
+                                            <img
+                                                src={`/speakers/${speaker.picture}`}
+                                                alt={`${speaker.firstName} ${speaker.lastName}`}
+                                                className="w-10 h-10 rounded-full"
+                                            />
+                                            <dl className="text-sm font-medium leading-5 whitespace-no-wrap">
+                                                <dt className="sr-only">Nom du Speaker</dt>
+                                                <dd className="text-gray-900">
+                                                    {speaker.firstName} {speaker.lastName}
+                                                </dd>
+                                                <dt className="sr-only">Socials</dt>
+                                                <dd>
+                                                    {speaker.links &&
+                                                        speaker.links.map(({ url, title }) => {
+                                                            return (
+                                                                <a
+                                                                    key={`${url}-${title}`}
+                                                                    href={url}
+                                                                    className="inline-block text-gray-600 mr-2"
+                                                                    rel="noopener noreferrer"
+                                                                >
+                                                                    {socials[title]}
+                                                                </a>
+                                                            );
+                                                        })}
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </dd>
+                        </dl>
+                    )}
                     <div className="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2">
                         <div className="prose max-w-none pt-10 pb-8">
                             <div dangerouslySetInnerHTML={{ __html: mdxHtml }} />
                         </div>
                         <div className="pt-6 pb-8 xl:pb-0">
                             <p>
-                                Tu veux parler de ce talk?{' '}
+                                Une faute ? Une amélioration ?{' '}
                                 <a
-                                    href={siteConfig.discordUrl}
+                                    href={githubTalkUrl}
                                     rel="noopener noreferrer"
                                     className="font-medium text-red-500 hover:text-red-600"
                                 >
-                                    Viens en discuter sur Discord &rarr;
+                                    Édite cette page &rarr;
                                 </a>
                             </p>
                         </div>
@@ -293,7 +302,9 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                         </h2>
                                         <div className="text-red-500 hover:text-red-600">
                                             <Link href={next.slug}>
-                                                <a>{next.title}</a>
+                                                <a>
+                                                    {next.title} #{next.edition}
+                                                </a>
                                             </Link>
                                         </div>
                                     </div>
@@ -305,7 +316,9 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                         </h2>
                                         <div className="text-red-500 hover:text-red-600">
                                             <Link href={previous.slug}>
-                                                <a>{previous.title}</a>
+                                                <a>
+                                                    {previous.title} #{previous.edition}
+                                                </a>
                                             </Link>
                                         </div>
                                     </div>
@@ -334,10 +347,12 @@ Talk.propTypes = {
     previous: PropTypes.shape({
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        edition: PropTypes.string.isRequired,
     }),
     next: PropTypes.shape({
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        edition: PropTypes.string.isRequired,
     }),
 };
 
@@ -377,19 +392,23 @@ export async function getStaticProps({ params: { slug } }) {
     const mdxSource = fs.readFileSync(file);
     const { content, data } = matter(mdxSource);
 
-    // Retrieve speakers informations
-    const searchSpeakersRegex =
-        data.speakers.length > 1 ? `{${data.speakers.join(',')}}` : `${data.speakers[0]}`;
-    const speakersFiles = glob.sync(`speakers/${searchSpeakersRegex}.mdx`);
-    const speakers = speakersFiles.map((file) => {
-        const src = fs.readFileSync(file);
-        const { data } = matter(src);
-        return {
-            slug: file.split('/')[1].split('.')[0],
-            ...data,
-        };
-    });
-    const orderedByLastName = speakers.sort((a, z) => a.lastName.localeCompare(z.lastName));
+    let propsSpeakers = null;
+
+    if (data.speakers) {
+        // Retrieve speakers informations
+        const searchSpeakersRegex =
+            data.speakers.length > 1 ? `{${data.speakers.join(',')}}` : `${data.speakers[0]}`;
+        const speakersFiles = glob.sync(`speakers/${searchSpeakersRegex}.mdx`);
+        const speakers = speakersFiles.map((file) => {
+            const src = fs.readFileSync(file);
+            const { data } = matter(src);
+            return {
+                slug: file.split('/')[1].split('.')[0],
+                ...data,
+            };
+        });
+        propsSpeakers = speakers.sort((a, z) => a.lastName.localeCompare(z.lastName));
+    }
 
     // Retrieve previous and next talks from current talk
     const getLinkInfos = (file) => {
@@ -398,6 +417,7 @@ export async function getStaticProps({ params: { slug } }) {
         return {
             slug: file.split('/')[1].split('_')[1].split('.')[0],
             title: data.title,
+            edition: data.edition,
         };
     };
     const previous = fileIndex > 0 ? getLinkInfos(files[fileIndex - 1]) : null;
@@ -411,7 +431,7 @@ export async function getStaticProps({ params: { slug } }) {
                 ...data,
             },
             slug,
-            speakers: orderedByLastName,
+            speakers: propsSpeakers,
             previous,
             next,
         },
