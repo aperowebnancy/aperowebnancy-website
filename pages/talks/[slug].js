@@ -170,7 +170,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                         </dl>
                         <div>
                             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-                                {frontMatter.title}
+                                {frontMatter.title} #{frontMatter.edition}
                             </h1>
                         </div>
                     </div>
@@ -302,7 +302,9 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                         </h2>
                                         <div className="text-red-500 hover:text-red-600">
                                             <Link href={next.slug}>
-                                                <a>{next.title}</a>
+                                                <a>
+                                                    {next.title} #{next.edition}
+                                                </a>
                                             </Link>
                                         </div>
                                     </div>
@@ -314,7 +316,9 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                         </h2>
                                         <div className="text-red-500 hover:text-red-600">
                                             <Link href={previous.slug}>
-                                                <a>{previous.title}</a>
+                                                <a>
+                                                    {previous.title} #{previous.edition}
+                                                </a>
                                             </Link>
                                         </div>
                                     </div>
@@ -343,10 +347,12 @@ Talk.propTypes = {
     previous: PropTypes.shape({
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        edition: PropTypes.string.isRequired,
     }),
     next: PropTypes.shape({
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        edition: PropTypes.string.isRequired,
     }),
 };
 
@@ -411,6 +417,7 @@ export async function getStaticProps({ params: { slug } }) {
         return {
             slug: file.split('/')[1].split('_')[1].split('.')[0],
             title: data.title,
+            edition: data.edition,
         };
     };
     const previous = fileIndex > 0 ? getLinkInfos(files[fileIndex - 1]) : null;

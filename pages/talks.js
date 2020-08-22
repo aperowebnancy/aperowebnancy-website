@@ -60,7 +60,7 @@ export default function Talks({ talks }) {
                                             <h2 className="text-2xl leading-8 font-bold tracking-tight">
                                                 <Link href={slug}>
                                                     <a className="text-gray-900">
-                                                        {frontMatter.title}
+                                                        {frontMatter.title} #{frontMatter.edition}
                                                     </a>
                                                 </Link>
                                             </h2>

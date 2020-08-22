@@ -144,7 +144,10 @@ export default function Home({ talks }) {
                                                 day: 'numeric',
                                             })}
                                         </time>
-                                        - <h2 className="ml-1">{frontMatter.title}</h2>
+                                        -{' '}
+                                        <h2 className="ml-1">
+                                            {frontMatter.title} #{frontMatter.edition}
+                                        </h2>
                                     </a>
                                 </Link>
                             </li>
