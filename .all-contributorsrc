@@ -45,6 +45,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "HZooly",
+      "name": "Hugo Torzuoli",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7328625?v=4",
+      "profile": "http://zooly.dev",
+      "contributions": [
+        "code",
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
