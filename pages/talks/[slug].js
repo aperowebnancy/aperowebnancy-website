@@ -342,17 +342,17 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
 Talk.propTypes = {
     mdxHtml: PropTypes.string.isRequired,
     frontMatter: PropTypes.object.isRequired,
-    speakers: PropTypes.array.isRequired,
+    speakers: PropTypes.array,
     slug: PropTypes.string.isRequired,
     previous: PropTypes.shape({
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        edition: PropTypes.string.isRequired,
+        edition: PropTypes.number.isRequired,
     }),
     next: PropTypes.shape({
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        edition: PropTypes.string.isRequired,
+        edition: PropTypes.number.isRequired,
     }),
 };
 
