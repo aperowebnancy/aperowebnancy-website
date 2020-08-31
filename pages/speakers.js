@@ -2,7 +2,6 @@ import fs from 'fs';
 import glob from 'fast-glob';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import matter from 'gray-matter';
 
 import { siteConfig } from '../lib/siteConfig';
@@ -83,20 +82,29 @@ Speaker.propTypes = {
 export default function Speakers({ speakers }) {
     return (
         <>
-            <Seo title="Proposez un talk " description="Venez animer un Meetup Apéro Web Nancy" />
-            <Head>
-                <title>Proposez un talk | Apéro Web Nancy</title>
-            </Head>
-            <section className="container mx-auto flex flex-wrap justify-center">
-                <a href={`mailto:${siteConfig.emailMeetup}`}>
-                    <Speaker key="you-start" {...youSpeaker} />
-                </a>
-                {speakers.map(({ slug, frontMatter }) => (
-                    <Speaker key={slug} {...frontMatter} />
-                ))}
-                <a href={`mailto:${siteConfig.emailMeetup}`}>
-                    <Speaker key="you-end" {...youSpeaker} />
-                </a>
+            <Seo
+                title="Speakers"
+                description="Retrouvez la liste des speakers ayant participé au Meetup Apéro Web Nancy"
+            />
+            <section className="container mx-auto">
+                <h1 className="text-3xl md:text-4xl text-red-600 font-bold">Speakers</h1>
+                <div className="pt-6 pb-8 space-y-2 md:space-y-5">
+                    <p className="text-lg leading-7 text-gray-700">
+                        Voici quelques-uns des speakers ayant partagé un sujet lors des rencontres
+                        précédentes.
+                    </p>
+                    <p className="text-lg leading-7 text-gray-700">
+                        Un sujet ? N&apos;hésitez pas à nous contacter pour nous le soumettre.
+                    </p>
+                </div>
+                <div className="flex flex-wrap justify-center">
+                    <a href={`mailto:${siteConfig.emailMeetup}`}>
+                        <Speaker key="you" {...youSpeaker} />
+                    </a>
+                    {speakers.map(({ slug, frontMatter }) => (
+                        <Speaker key={slug} {...frontMatter} />
+                    ))}
+                </div>
             </section>
         </>
     );

@@ -61,13 +61,12 @@ export default function FAQ() {
                 description="Une question sur le Meetup Apéro Web Nancy, retrouvez ici une réponse"
                 jsonLdArray={faqJsonLd}
             />
-
             <section className="container mx-auto space-y-4">
                 <h1 className="text-3xl md:text-4xl text-red-600 font-bold">Foire aux questions</h1>
 
-                <h3 className="text-xl md:text-2xl text-gray-600 font-bold">
+                <h2 className="text-xl md:text-2xl text-gray-600 font-bold">
                     Qu’est-ce que c&apos;est ?
-                </h3>
+                </h2>
                 <p>
                     <strong>Apéro Web Nancy</strong> est une communauté de{' '}
                     <strong>développeurs Nancéiens</strong>. Cette communauté organise des
@@ -80,7 +79,7 @@ export default function FAQ() {
                     une bière avec nous !
                 </p>
 
-                <h3 className="text-xl md:text-2xl text-gray-600 font-bold">Qui sommes-nous ?</h3>
+                <h2 className="text-xl md:text-2xl text-gray-600 font-bold">Qui sommes-nous ?</h2>
                 <p>
                     Apéro Web Nancy ne vit que par l&apos;investissement des membres de sa
                     communauté et ne dépend d&apos;aucune entreprise. Nous souhaitons rester{' '}
@@ -88,9 +87,9 @@ export default function FAQ() {
                 </p>
                 <p>Les organisateurs actuels sont : {currentOrganizer}.</p>
 
-                <h3 className="text-xl md:text-2xl text-gray-600 font-bold">
+                <h2 className="text-xl md:text-2xl text-gray-600 font-bold">
                     Comment contribuer ?
-                </h3>
+                </h2>
                 <p>Il existe de multiples façons de contribuer à l&apos;Apéro Web Nancy :</p>
                 <ul className="list-disc list-inside">
                     <li>

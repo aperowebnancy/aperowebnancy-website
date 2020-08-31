@@ -12,18 +12,15 @@ export default function Talks({ talks }) {
     return (
         <>
             <Seo
-                title="Précédent talk"
+                title="Précédents talks"
                 description="Retrouvez la liste de tout les talks du Meetup Apéro Web Nancy"
             />
             <div className="container mx-auto">
+                <h1 className="text-3xl md:text-4xl text-red-600 font-bold">Précédents talks</h1>
                 <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-                    <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                        Rencontres passées
-                    </h1>
                     <p className="text-lg leading-7 text-gray-700">
-                        Voici quelques-uns des sujets que nous avons abordés lors de rencontres
-                        précédentes. Un sujet? N&apos;hésitez pas à nous contacter pour nous le
-                        soumettre.
+                        Voici quelques-uns des sujets que nous avons abordés lors des rencontres
+                        précédentes.
                     </p>
                     <p className="text-lg leading-7 text-gray-700">
                         Récemment, nous avons également enregistré et publié les conférences sur
@@ -36,6 +33,9 @@ export default function Talks({ talks }) {
                             ici
                         </a>
                         .
+                    </p>
+                    <p className="text-lg leading-7 text-gray-700">
+                        Un sujet ? N&apos;hésitez pas à nous contacter pour nous le soumettre.
                     </p>
                 </div>
                 <ul className="divide-y divide-gray-200">
