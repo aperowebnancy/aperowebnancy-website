@@ -1,11 +1,9 @@
-import fs from 'fs';
-import glob from 'fast-glob';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import matter from 'gray-matter';
 
 import { siteConfig } from '../lib/siteConfig';
+import { getAllTalks } from '../lib/requestMdxFiles';
 import { Seo } from '../components/Seo';
 
 export default function Talks({ talks }) {
@@ -149,29 +147,9 @@ Talks.propTypes = {
 };
 
 export async function getStaticProps() {
-    const files = glob.sync('talks/*.mdx');
-
-    const allMdx = files.map((file) => {
-        const [_, filename] = file.split('/');
-        const [date, slug] = filename.replace('.mdx', '').split('_');
-
-        const mdxSource = fs.readFileSync(file);
-        const { data } = matter(mdxSource);
-
-        return {
-            date,
-            slug: `talks/${slug}`,
-            frontMatter: data,
-        };
-    });
-
-    const orderedByDate = allMdx.sort((a, z) => {
-        return new Date(z.date) - new Date(a.date);
-    });
-
     return {
         props: {
-            talks: orderedByDate,
+            talks: getAllTalks(),
         },
     };
 }

@@ -1,14 +1,12 @@
-import fs from 'fs';
-import glob from 'fast-glob';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import matter from 'gray-matter';
 
 import { siteConfig } from '../lib/siteConfig';
+import { getAllTalks, getAllSpeakers } from '../lib/requestMdxFiles';
 import { Seo } from '../components/Seo';
 
-const FutureTalk = ({ talk }) => {
+const FutureTalk = ({ talk, speakers }) => {
     return (
         <React.Fragment>
             <h3 className="text-2xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-3xl sm:leading-10">
@@ -59,7 +57,12 @@ const FutureTalk = ({ talk }) => {
                     >
                         <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
                     </svg>
-                    {talk.frontMatter.speakers[0]}
+                    {speakers.map(({ slug, frontMatter }, index) => (
+                        <React.Fragment key={slug}>
+                            {index > 0 ? ', ' : ''}
+                            {frontMatter.firstName} {frontMatter.lastName}
+                        </React.Fragment>
+                    ))}
                 </div>
             </div>
         </React.Fragment>
@@ -72,9 +75,15 @@ FutureTalk.propTypes = {
         slug: PropTypes.string.isRequired,
         frontMatter: PropTypes.object.isRequired,
     }).isRequired,
+    speakers: PropTypes.arrayOf(
+        PropTypes.shape({
+            slug: PropTypes.string.isRequired,
+            frontMatter: PropTypes.object.isRequired,
+        }),
+    ).isRequired,
 };
 
-export default function Home({ talks }) {
+export default function Home({ talks, lastTalkSpeakers }) {
     const lastTalk = talks[0];
     const isFutureTalk = new Date() - new Date(lastTalk.date) < 0;
 
@@ -87,7 +96,7 @@ export default function Home({ talks }) {
                     Le meetup mensuel autour des technos du Web
                 </h2>
                 {isFutureTalk ? (
-                    <FutureTalk talk={lastTalk} />
+                    <FutureTalk talk={lastTalk} speakers={lastTalkSpeakers} />
                 ) : (
                     <h3 className="my-4 text-xl md:text-2xl text-gray-600 font-bold">
                         Aucun événement planifié
@@ -277,32 +286,24 @@ Home.propTypes = {
             frontMatter: PropTypes.object.isRequired,
         }),
     ).isRequired,
+    lastTalkSpeakers: PropTypes.arrayOf(
+        PropTypes.shape({
+            slug: PropTypes.string.isRequired,
+            frontMatter: PropTypes.object.isRequired,
+        }),
+    ).isRequired,
 };
 
 export async function getStaticProps() {
-    const files = glob.sync('talks/*.mdx');
+    const talks = getAllTalks().slice(0, 5);
 
-    const allMdx = files.map((file) => {
-        const [_, filename] = file.split('/');
-        const [date, slug] = filename.replace('.mdx', '').split('_');
-
-        const mdxSource = fs.readFileSync(file);
-        const { data } = matter(mdxSource);
-
-        return {
-            date,
-            slug: `talks/${slug}`,
-            frontMatter: data,
-        };
-    });
-
-    const orderedByDate = allMdx.sort((a, z) => {
-        return new Date(z.date) - new Date(a.date);
-    });
+    const lastTalkSpeakers = talks[0].frontMatter.speakers;
+    const lastTalkSpeakersData = getAllSpeakers().filter((s) => lastTalkSpeakers.includes(s.slug));
 
     return {
         props: {
-            talks: orderedByDate.slice(0, 5),
+            talks,
+            lastTalkSpeakers: lastTalkSpeakersData,
         },
     };
 }

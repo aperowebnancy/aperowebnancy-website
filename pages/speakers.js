@@ -1,10 +1,8 @@
-import fs from 'fs';
-import glob from 'fast-glob';
 import React from 'react';
 import PropTypes from 'prop-types';
-import matter from 'gray-matter';
 
 import { siteConfig } from '../lib/siteConfig';
+import { getAllSpeakers } from '../lib/requestMdxFiles';
 import { Seo } from '../components/Seo';
 
 export const socials = {
@@ -120,28 +118,9 @@ Speakers.propTypes = {
 };
 
 export async function getStaticProps() {
-    const files = glob.sync('speakers/*.mdx');
-
-    const allMdx = files.map((file) => {
-        const [_, filename] = file.split('/');
-        const [slug] = filename.split('.');
-
-        const mdxSource = fs.readFileSync(file);
-        const { data } = matter(mdxSource);
-
-        return {
-            slug,
-            frontMatter: data,
-        };
-    });
-
-    const orderedByLastName = allMdx.sort((a, z) =>
-        a.frontMatter.lastName.localeCompare(z.frontMatter.lastName),
-    );
-
     return {
         props: {
-            speakers: orderedByLastName,
+            speakers: getAllSpeakers(),
         },
     };
 }
