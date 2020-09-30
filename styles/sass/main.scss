@@ -1,0 +1,8 @@
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+
+@import "./components/talks-list";
+
+a {
+    transition: $transition-default;
+}

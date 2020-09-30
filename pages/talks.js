@@ -37,28 +37,30 @@ export default function Talks({ talks }) {
                         Un sujet ? N&apos;hésitez pas à nous contacter pour nous le soumettre.
                     </p>
                 </div>
-                <ul className="divide-y divide-gray-200">
+                <ul className="talks-list flex flex-wrap -mx-2">
                     {talks.map(({ date, slug, frontMatter }) => {
                         return (
-                            <li key={slug} className="py-12">
-                                <article className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
-                                    <dl>
+                            <li key={slug} className="xl:w-1/2">
+                                <article className="p-4 pt-8 mx-2">
+                                    <dl className="p-1 pt-2">
                                         <dt className="sr-only">Published on</dt>
-                                        <dd className="text-base leading-6 font-medium">
-                                            <time dateTime={date}>
-                                                {new Date(date).toLocaleDateString('fr-FR', {
-                                                    year: 'numeric',
-                                                    month: 'short',
-                                                    day: 'numeric',
-                                                })}
-                                            </time>
+                                        <dd className="text-sm font-medium text-gray-700">
+                                            <span>
+                                                <time dateTime={date}>
+                                                    {new Date(date).toLocaleDateString('fr-FR', {
+                                                        year: 'numeric',
+                                                        month: 'short',
+                                                        day: 'numeric',
+                                                    })}
+                                                </time>
+                                            </span>
                                         </dd>
                                     </dl>
-                                    <div className="space-y-5 xl:col-span-3">
-                                        <div className="space-y-6">
+                                    <div className="informations">
+                                        <div className="space-y-6 mb-6">
                                             <h2 className="text-2xl leading-8 font-bold tracking-tight">
                                                 <Link href={slug}>
-                                                    <a className="text-gray-900">
+                                                    <a className="text-gray-900 hover:text-red-600">
                                                         {frontMatter.title} #{frontMatter.edition}
                                                     </a>
                                                 </Link>
