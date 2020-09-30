@@ -1,4 +1,5 @@
 import '../styles/tailwind.css';
+import '../styles/sass/main.scss';
 
 import React from 'react';
 import PropTypes from 'prop-types';
