@@ -42,26 +42,38 @@ export default function Talks({ talks }) {
                         return (
                             <li key={slug} className="xl:w-1/2">
                                 <article className="p-4 pt-8 mx-2">
-                                    <dl className="p-1 pt-2">
-                                        <dt className="sr-only">Published on</dt>
-                                        <dd className="text-sm font-medium text-gray-700">
-                                            <span>
-                                                <time dateTime={date}>
-                                                    {new Date(date).toLocaleDateString('fr-FR', {
-                                                        year: 'numeric',
-                                                        month: 'short',
-                                                        day: 'numeric',
-                                                    })}
-                                                </time>
-                                            </span>
-                                        </dd>
-                                    </dl>
-                                    <div className="informations">
+                                    <ul className="tags flex">
+                                        <li className="tag">
+                                            <div className="tag-content date p-1 pt-2">
+                                                <dl>
+                                                    <dt className="sr-only">Published on</dt>
+                                                    <dd className="text-sm font-medium text-white">
+                                                        <time dateTime={date}>
+                                                            {new Date(date).toLocaleDateString(
+                                                                'fr-FR',
+                                                                {
+                                                                    year: 'numeric',
+                                                                    month: 'short',
+                                                                    day: 'numeric',
+                                                                },
+                                                            )}
+                                                        </time>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </li>
+                                        <li className="tag">
+                                            <div className="tag-content edition text-sm font-medium text-white p-1 pt-2">
+                                                <span>#{frontMatter.edition}</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div className="informations xl:w-11/12">
                                         <div className="space-y-6 mb-6">
                                             <h2 className="text-2xl leading-8 font-bold tracking-tight">
                                                 <Link href={slug}>
                                                     <a className="text-gray-900 hover:text-red-600">
-                                                        {frontMatter.title} #{frontMatter.edition}
+                                                        {frontMatter.title}
                                                     </a>
                                                 </Link>
                                             </h2>

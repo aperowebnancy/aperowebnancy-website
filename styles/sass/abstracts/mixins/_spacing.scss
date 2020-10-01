@@ -1,10 +1,10 @@
-@function getTailwindSpacingVal($baseNumber: 1) {
-    $number: $baseNumber * $tailwind-spacing-base;
+@function getTailwindSpacingVal($base-number: 1) {
+    $number: $base-number * $tailwind-spacing-base;
     @return $number;
 }
 
-@mixin tailwindSpacing($type: padding, $direction: all, $baseNumber: 1) {
-    $number: $baseNumber * $tailwind-spacing-base;
+@mixin tailwindSpacing($type: padding, $direction: all, $base-number: 1) {
+    $number: getTailwindSpacingVal($base-number);
     @if ($direction == all) {
         #{$type}: $number $number $number $number;
     } @else if ($direction == y) {

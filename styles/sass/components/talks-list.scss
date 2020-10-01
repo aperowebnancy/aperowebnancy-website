@@ -9,34 +9,48 @@
             transition: $transition-default;
             box-shadow: $box-shadow-default;
             height: 100%;
-            @include boxShadow(15px, 0.08, $red-700);
-            dl {
+            @include boxShadow(15px, 0.10, $red-700);
+            .tags {
                 position: absolute;
                 top: 0px;
-                line-height: 12px;
-                overflow: hidden;
-                &::before,
-                &::after {
-                    content: "";
-                    transition: $transition-default;
-                    position: absolute;
-                    right: 0px;
-                    top: 0px;
-                    width: 100%;
-                    height: 100%;
-                }
-                &::before {
-                    background-color: $red-800;
-                }
-                &::after {
-                    background-color: $red-600;
-                    transform: translateY(-101%);
-                }
-                dd {
-                    transition: $transition-default;
-                    position: relative;
-                    z-index: 1;
-                    color: $white;
+                width: calc(100% - #{getTailwindSpacingVal(8)});
+                .tag {
+                    &:not(:last-child) {
+                        @include tailwindSpacing(margin, r, 2);
+                    }
+                    .tag-content {
+                        display: flex;
+                        position: relative;
+                        top: 0px;
+                        line-height: 12px;
+                        overflow: hidden;
+                        &::before,
+                        &::after {
+                            content: "";
+                            transition: $transition-default;
+                            position: absolute;
+                            right: 0px;
+                            top: 0px;
+                            width: 100%;
+                            height: 100%;
+                        }
+                        &::before {
+                            background-color: $red-800;
+                        }
+                        &::after {
+                            background-color: $red-600;
+                            transform: translateY(-101%);
+                        }
+                        > * {
+                            position: relative;
+                            z-index: 1;
+                        }
+                    }
+                    dl {
+                        dd {
+                            transition: $transition-default;
+                        }
+                    }
                 }
             }
             .informations {
@@ -48,15 +62,21 @@
                 }
             }
             &:hover {
-                @include boxShadow(20px, 0.15, $red-700, 5px, y);
+                @include boxShadow(20px, 0.18, $red-700, 5px, y);
                 transform: translateY(-5px);
-                dl {
-                    &::after {
-                        transform: translateY(0%);
-                    }
-                    dd {
-                        opacity: 1;
-                        color: $white;
+                .tags {
+                    .tag {
+                        .tag-content {
+                            &::after {
+                                transform: translateY(0%);
+                            }
+                        }
+                        dl {
+                            dd {
+                                opacity: 1;
+                                color: $white;
+                            }
+                        }
                     }
                 }
             }
