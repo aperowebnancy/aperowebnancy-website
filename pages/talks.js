@@ -40,7 +40,7 @@ export default function Talks({ talks }) {
                 <ul className="talks-list flex flex-wrap -mx-2">
                     {talks.map(({ date, slug, frontMatter }) => {
                         return (
-                            <li key={slug} className="xl:w-1/2">
+                            <li key={slug} className="talk w-full xl:w-1/2">
                                 <article className="p-4 pt-8 mx-2">
                                     <ul className="tags flex">
                                         <li className="tag">
@@ -69,7 +69,7 @@ export default function Talks({ talks }) {
                                         </li>
                                     </ul>
                                     <div className="informations xl:w-11/12">
-                                        <div className="space-y-6 mb-6">
+                                        <div className="space-y-2 mb-6">
                                             <h2 className="text-2xl leading-8 font-bold tracking-tight">
                                                 <Link href={slug}>
                                                     <a className="text-gray-900 hover:text-red-600">

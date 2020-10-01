@@ -1,5 +1,5 @@
 .talks-list {
-    li {
+    .talk {
         &:not(:nth-last-child(1)),
         &:not(:nth-last-child(2)) {
             @include tailwindSpacing(margin, b, 4);
