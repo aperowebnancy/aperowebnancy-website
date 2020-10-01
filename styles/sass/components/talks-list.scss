@@ -9,6 +9,7 @@
             transition: $transition-default;
             box-shadow: $box-shadow-default;
             height: 100%;
+            border-radius: $border-radius-default;
             @include boxShadow(15px, 0.10, $red-700);
             .tags {
                 position: absolute;
@@ -24,6 +25,8 @@
                         top: 0px;
                         line-height: 12px;
                         overflow: hidden;
+                        border-bottom-left-radius: $border-radius-default;
+                        border-bottom-right-radius: $border-radius-default;
                         &::before,
                         &::after {
                             content: "";
@@ -39,7 +42,7 @@
                         }
                         &::after {
                             background-color: $red-600;
-                            transform: translateY(-101%);
+                            transform: translateY(101%);
                         }
                         > * {
                             position: relative;

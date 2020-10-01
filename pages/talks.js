@@ -44,7 +44,7 @@ export default function Talks({ talks }) {
                                 <article className="p-4 pt-8 mx-2">
                                     <ul className="tags flex">
                                         <li className="tag">
-                                            <div className="tag-content date p-1 pt-2">
+                                            <div className="tag-content date p-2 pb-1 pt-2">
                                                 <dl>
                                                     <dt className="sr-only">Published on</dt>
                                                     <dd className="text-sm font-medium text-white">
@@ -63,7 +63,7 @@ export default function Talks({ talks }) {
                                             </div>
                                         </li>
                                         <li className="tag">
-                                            <div className="tag-content edition text-sm font-medium text-white p-1 pt-2">
+                                            <div className="tag-content edition text-sm font-medium text-white p-2 pb-1 pt-2">
                                                 <span>#{frontMatter.edition}</span>
                                             </div>
                                         </li>
