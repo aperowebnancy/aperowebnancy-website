@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import { siteConfig } from '../lib/siteConfig';
 
-export const Seo = ({ title, description, image, jsonLdArray = [] }) => {
+export function Seo({ title, description, image, jsonLdArray = [] }) {
     const router = useRouter();
 
     const metaTitle = title || 'Apéro Web Nancy';
@@ -75,7 +75,7 @@ export const Seo = ({ title, description, image, jsonLdArray = [] }) => {
             <meta name="theme-color" content="#ffffff" />
         </Head>
     );
-};
+}
 
 Seo.propTypes = {
     title: PropTypes.string,

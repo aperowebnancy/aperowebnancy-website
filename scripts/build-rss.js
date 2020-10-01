@@ -5,7 +5,7 @@ import RSS from 'rss';
 
 import { siteConfig } from '../lib/siteConfig';
 
-const getAllTalks = () => {
+function getAllTalks() {
     const files = glob.sync('talks/*.mdx');
 
     return files.map((file) => {
@@ -21,7 +21,7 @@ const getAllTalks = () => {
             frontMatter: data,
         };
     });
-};
+}
 
 const feed = new RSS({
     title: 'Apéro Web Nancy Meetup',
