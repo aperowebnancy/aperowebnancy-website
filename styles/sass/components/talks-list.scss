@@ -61,20 +61,22 @@
                     margin-top: auto;
                 }
             }
-            &:hover {
-                @include boxShadow(20px, 0.18, $red-700, 5px, y);
-                transform: translateY(-5px);
-                .tags {
-                    .tag {
-                        .tag-content {
-                            &::after {
-                                transform: translateY(0%);
+            @include md-min {
+                &:hover {
+                    @include boxShadow(20px, 0.18, $red-700, 5px, y);
+                    transform: translateY(-5px);
+                    .tags {
+                        .tag {
+                            .tag-content {
+                                &::after {
+                                    transform: translateY(0%);
+                                }
                             }
-                        }
-                        dl {
-                            dd {
-                                opacity: 1;
-                                color: $white;
+                            dl {
+                                dd {
+                                    opacity: 1;
+                                    color: $white;
+                                }
                             }
                         }
                     }
