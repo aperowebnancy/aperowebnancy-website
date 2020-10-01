@@ -1067,10 +1067,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@corex/deepmerge@^2.3.6":
-  version "2.3.6"
-  resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-2.3.6.tgz#1301b0e43cc692e26ccf5d41fc6642446a9b212b"
-  integrity sha512-YziRFUyFj+fKWPkfs6iPFnjf++KYvO+XAQ6yKIzswW5fiudrhMo0mE9eVWYiVDRM95bmVnX3JQbRA8HwqDosPA==
+"@corex/deepmerge@^2.4.6":
+  version "2.4.14"
+  resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-2.4.14.tgz#e673056e4512036c2a8277407798089a32c9cd6a"
+  integrity sha512-kjNIKt5zCoO0M4ArjFlU8cxx+7Yyx9nq3H6dMngnZxQ12Gh/9cUz4kXRkWrwNjp5vtlls2A8Qsi1onrj5OqTgA==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
@@ -5212,12 +5212,12 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-sitemap@^1.0.17:
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.0.17.tgz#abc982bb0775c291bc7914b56ac578743928bf24"
-  integrity sha512-gJE6e4v83ls4fh+pJGqgtsdS+4Li8HsXKlFElTRJuKe8t+51R23P2Ph5gnIneptyzHQD5kvf8KXmDJupdBnyyA==
+next-sitemap@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.2.4.tgz#6f4b94563da26133f265920ab9779c15e49639eb"
+  integrity sha512-Dpitr8mdRpdpEj7iE/3llrAw/uHK0UB6zf68FX3Zxlt5DvdxzwtXzbQc8s6V6DPtOvwfctj5LXvQr+C4NEpImw==
   dependencies:
-    "@corex/deepmerge" "^2.3.6"
+    "@corex/deepmerge" "^2.4.6"
 
 next-tick@~1.0.0:
   version "1.0.0"
