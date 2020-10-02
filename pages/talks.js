@@ -40,11 +40,40 @@ export default function Talks({ talks }) {
                 <ul className="talks-list flex flex-wrap -mx-2">
                     {talks.map(({ date, slug, frontMatter }) => {
                         return (
-                            <li key={slug} className="talk w-full md:w-1/2">
-                                <article className="p-4 pt-8 mx-2">
-                                    <ul className="tags flex">
+                            <li
+                                key={slug}
+                                className={`talk mb-4 w-full 
+                            ${
+                                new Date() - new Date(date) < 0
+                                    ? 'next-talk'
+                                    : new Date().getDate() == new Date(date).getDate() &&
+                                      new Date().getMonth() == new Date(date).getMonth() &&
+                                      new Date().getFullYear() == new Date(date).getFullYear()
+                                    ? 'current-talk'
+                                    : 'md:w-1/2 lg:w-1/3 xl:w-1/4'
+                            }`}
+                            >
+                                <article className="card h-full p-4 pt-8 mx-2 rounded-lg relative">
+                                    <ul className="tags absolute top-0 flex">
+                                        {new Date() - new Date(date) < 0 && (
+                                            <li className="tag">
+                                                <div className="tag-content leading-3 overflow-hidden flex relative rounded-b-lg next-talk text-sm font-medium text-white p-2 pb-1 pt-2">
+                                                    <span>Prochainement</span>
+                                                </div>
+                                            </li>
+                                        )}
+                                        {new Date().getDate() == new Date(date).getDate() &&
+                                            new Date().getMonth() == new Date(date).getMonth() &&
+                                            new Date().getFullYear() ==
+                                                new Date(date).getFullYear() && (
+                                                <li className="tag">
+                                                    <div className="tag-content leading-3 overflow-hidden flex relative rounded-b-lg next-talk text-sm font-medium text-white p-2 pb-1 pt-2">
+                                                        <span>Aujourd'hui</span>
+                                                    </div>
+                                                </li>
+                                            )}
                                         <li className="tag">
-                                            <div className="tag-content date p-2 pb-1 pt-2">
+                                            <div className="tag-content leading-3 overflow-hidden flex relative rounded-b-lg date p-2 pb-1 pt-2">
                                                 <dl>
                                                     <dt className="sr-only">Published on</dt>
                                                     <dd className="text-sm font-medium text-white">
@@ -63,12 +92,12 @@ export default function Talks({ talks }) {
                                             </div>
                                         </li>
                                         <li className="tag">
-                                            <div className="tag-content edition text-sm font-medium text-white p-2 pb-1 pt-2">
+                                            <div className="tag-content leading-3 overflow-hidden flex relative rounded-b-lg edition text-sm font-medium text-white p-2 pb-1 pt-2">
                                                 <span>#{frontMatter.edition}</span>
                                             </div>
                                         </li>
                                     </ul>
-                                    <div className="informations xl:w-11/12">
+                                    <div className="informations flex flex-col xl:w-11/12">
                                         <div className="space-y-2 mb-6">
                                             <h2 className="text-2xl leading-8 font-bold tracking-tight">
                                                 <Link href={slug}>
@@ -90,7 +119,12 @@ export default function Talks({ talks }) {
                                                     Lire plus &rarr;
                                                 </a>
                                             </Link>
-                                            {new Date() - new Date(date) < 0 && (
+                                            {(new Date() - new Date(date) < 0 ||
+                                                (new Date().getDate() == new Date(date).getDate() &&
+                                                    new Date().getMonth() ==
+                                                        new Date(date).getMonth() &&
+                                                    new Date().getFullYear() ==
+                                                        new Date(date).getFullYear())) && (
                                                 <div className="flex mx-4">
                                                     <a
                                                         href={frontMatter.meetupLink}

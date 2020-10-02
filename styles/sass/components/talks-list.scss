@@ -1,32 +1,13 @@
 .talks-list {
     .talk {
-        &:not(:nth-last-child(1)),
-        &:not(:nth-last-child(2)) {
-            @include tailwindSpacing(margin, b, 4);
-        }
         article {
-            position: relative;
-            transition: $transition-default;
-            box-shadow: $box-shadow-default;
-            height: 100%;
-            border-radius: $border-radius-default;
-            @include boxShadow(15px, 0.10, $red-700);
             .tags {
-                position: absolute;
-                top: 0px;
                 width: calc(100% - #{getTailwindSpacingVal(8)});
                 .tag {
                     &:not(:last-child) {
                         @include tailwindSpacing(margin, r, 2);
                     }
                     .tag-content {
-                        display: flex;
-                        position: relative;
-                        top: 0px;
-                        line-height: 12px;
-                        overflow: hidden;
-                        border-bottom-left-radius: $border-radius-default;
-                        border-bottom-right-radius: $border-radius-default;
                         &::before,
                         &::after {
                             content: "";
@@ -57,8 +38,6 @@
                 }
             }
             .informations {
-                display: flex;
-                flex-direction: column;
                 height: 100%;
                 > div:last-child {
                     margin-top: auto;
@@ -66,8 +45,6 @@
             }
             @include md-min {
                 &:hover {
-                    @include boxShadow(20px, 0.18, $red-700, 5px, y);
-                    transform: translateY(-5px);
                     .tags {
                         .tag {
                             .tag-content {
@@ -75,13 +52,27 @@
                                     transform: translateY(0%);
                                 }
                             }
-                            dl {
-                                dd {
-                                    opacity: 1;
-                                    color: $white;
-                                }
-                            }
                         }
+                    }
+                }
+            }
+        }
+        &.next-talk {
+            article {
+                @include boxShadow(15px, 0.3, $red-700);
+                @include md-min {
+                    &:hover {
+                        @include boxShadow(20px, 0.4, $red-700, 5px, y);
+                    }
+                }
+            }
+        }
+        &.current-talk {
+            article {
+                @include boxShadow(15px, 0.3, $red-700);
+                @include md-min {
+                    &:hover {
+                        @include boxShadow(20px, 0.4, $red-700, 5px, y);
                     }
                 }
             }

@@ -1,0 +1,8 @@
+.card {
+    transition: $transition-default;
+    @include boxShadow(15px, 0.1, $red-700);
+    &:hover {
+        @include boxShadow(20px, 0.18, $red-700, 5px, y);
+        transform: translateY(-5px);
+    }
+}
