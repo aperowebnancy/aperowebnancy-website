@@ -242,7 +242,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                     rel="noopener noreferrer"
                                 >
                                     <div className="h-6 w-6 mr-2">
-                                        <MeetupIcon />
+                                        <MeetupIcon fillBackground="#a0aec0" />
                                     </div>
                                     Meetup
                                 </a>

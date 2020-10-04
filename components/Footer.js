@@ -37,7 +37,7 @@ export const Footer = () => (
                     className="h-6 w-6 text-gray-500 hover:text-gray-600"
                     rel="noopener noreferrer"
                 >
-                    <MeetupIcon />
+                    <MeetupIcon fillBackground="#a0aec0" />
                     <span className="sr-only">Meetup</span>
                 </a>
                 <a

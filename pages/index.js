@@ -8,7 +8,6 @@ import {
     CalendarIcon,
     PlaceIcon,
     PeopleIcon,
-    MeetupColorIcon,
     DiscordIcon,
     TwitterIcon,
     YoutubeIcon,
@@ -92,8 +91,8 @@ export default function Home({ talks, lastTalkSpeakers }) {
                             className="text-white bg-red-600 p-3 rounded tracking-wider"
                             rel="noopener noreferrer"
                         >
-                            <div className="inline-block align-middle w-8">
-                                <MeetupColorIcon />
+                            <div className="inline-block align-middle w-8 text-gray-900">
+                                <MeetupIcon fillBackground="#fff" fillLetter="#e53e3e" />
                             </div>
                             Suivre sur Meetup.com
                         </a>
@@ -175,10 +174,12 @@ export default function Home({ talks, lastTalkSpeakers }) {
                                     <div className="flex mx-4">
                                         <a
                                             href={frontMatter.meetupLink}
-                                            className="flex items-center text-red-500 hover:text-red-600 h-6 w-6 mr-2"
+                                            className="flex items-center text-red-500 hover:text-red-600"
                                             rel="noopener noreferrer"
                                         >
-                                            <MeetupIcon />
+                                            <div className="inline-block w-6 h-6 mr-1">
+                                                <MeetupIcon />
+                                            </div>
                                             Inscrivez-vous !
                                         </a>
                                     </div>
