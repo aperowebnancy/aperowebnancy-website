@@ -255,9 +255,9 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <div className="h-6 w-6">
+                                    <span className="h-6 w-6">
                                         <TwitterIcon />
-                                    </div>
+                                    </span>
                                     Twitter
                                 </a>
                                 <ShareMore title={frontMatter.title} slug={slug} />

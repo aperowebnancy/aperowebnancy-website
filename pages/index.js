@@ -91,9 +91,9 @@ export default function Home({ talks, lastTalkSpeakers }) {
                             className="text-white bg-red-600 p-3 rounded tracking-wider"
                             rel="noopener noreferrer"
                         >
-                            <div className="inline-block align-middle w-8 text-gray-900">
+                            <span className="inline-block align-middle w-8 text-gray-900">
                                 <MeetupIcon fillBackground="#fff" fillLetter="#e53e3e" />
-                            </div>
+                            </span>
                             Suivre sur Meetup.com
                         </a>
                     </Link>
@@ -101,21 +101,21 @@ export default function Home({ talks, lastTalkSpeakers }) {
                     <p className="m-2 space-x-2">
                         <span>Rejoignez aussi la communauté sur</span>
                         <a href={siteConfig.discordUrl} rel="noopener noreferrer">
-                            <div className="inline-block align-middle w-8 pr-1 text-indigo-600">
+                            <span className="inline-block align-middle w-8 pr-1 text-indigo-600">
                                 <DiscordIcon />
-                            </div>
+                            </span>
                             Discord
                         </a>
                         <a href={siteConfig.twitterUrl} rel="noopener noreferrer">
-                            <div className="inline-block align-middle w-8 pr-1 text-blue-400">
+                            <span className="inline-block align-middle w-8 pr-1 text-blue-400">
                                 <TwitterIcon />
-                            </div>
+                            </span>
                             Twitter
                         </a>
                         <a href={siteConfig.youtubeUrl} rel="noopener noreferrer">
-                            <div className="inline-block align-middle w-8 pr-1 text-red-600">
+                            <span className="inline-block align-middle w-8 pr-1 text-red-600">
                                 <YoutubeIcon />
-                            </div>
+                            </span>
                             Youtube
                         </a>
                     </p>
@@ -177,9 +177,9 @@ export default function Home({ talks, lastTalkSpeakers }) {
                                             className="flex items-center text-red-500 hover:text-red-600"
                                             rel="noopener noreferrer"
                                         >
-                                            <div className="inline-block w-6 h-6 mr-1">
+                                            <span className="inline-block w-6 h-6 mr-1">
                                                 <MeetupIcon />
-                                            </div>
+                                            </span>
                                             Inscrivez-vous !
                                         </a>
                                     </div>

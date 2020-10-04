@@ -83,9 +83,9 @@ export default function Talks({ talks }) {
                                                         className="flex items-center text-red-500 hover:text-red-600"
                                                         rel="noopener noreferrer"
                                                     >
-                                                        <div className="inline-block w-6 h-6 mr-1">
+                                                        <span className="inline-block w-6 h-6 mr-1">
                                                             <MeetupIcon />
-                                                        </div>
+                                                        </span>
                                                         Inscrivez-vous !
                                                     </a>
                                                 </div>
