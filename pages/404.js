@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+
 import { Seo } from '../components/Seo';
 
 export default function NotFoundPage() {
