@@ -8,9 +8,9 @@ import ReactDOM from 'react-dom/server';
 import matter from 'gray-matter';
 import MDX from '@mdx-js/runtime';
 
-import { socials } from '../speakers';
 import { siteConfig } from '../../lib/siteConfig';
 import { ShareIcon, MeetupIcon, TwitterIcon } from '../../components/Icons';
+import { SpeakerLinks } from '../../components/SpeakerLinks';
 import { Seo } from '../../components/Seo';
 
 function Youtube({ videoId, title }) {
@@ -204,19 +204,9 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                                 </dd>
                                                 <dt className="sr-only">Socials</dt>
                                                 <dd>
-                                                    {speaker.links &&
-                                                        speaker.links.map(({ url, title }) => {
-                                                            return (
-                                                                <a
-                                                                    key={`${url}-${title}`}
-                                                                    href={url}
-                                                                    className="inline-block text-gray-600 mr-2 h-4 w-4"
-                                                                    rel="noopener noreferrer"
-                                                                >
-                                                                    {socials[title]}
-                                                                </a>
-                                                            );
-                                                        })}
+                                                    {speaker.links && (
+                                                        <SpeakerLinks links={speaker.links} />
+                                                    )}
                                                 </dd>
                                             </dl>
                                         </li>

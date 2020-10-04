@@ -3,15 +3,8 @@ import PropTypes from 'prop-types';
 
 import { siteConfig } from '../lib/siteConfig';
 import { getAllSpeakers } from '../lib/requestMdxFiles';
-import { TwitterIcon, GitHubIcon, LinkedinIcon, PersonalIcon } from '../components/Icons';
+import { SpeakerLinks } from '../components/SpeakerLinks';
 import { Seo } from '../components/Seo';
-
-export const socials = {
-    twitter: <TwitterIcon />,
-    github: <GitHubIcon />,
-    linkedin: <LinkedinIcon />,
-    perso: <PersonalIcon />,
-};
 
 const youSpeaker = {
     firstName: 'Vous',
@@ -30,21 +23,7 @@ function Speaker({ firstName, lastName, resume, picture, links }) {
             <img className="object-cover rounded-full w-3/5" src={pathPicture} alt={completeName} />
             <h3 className="text-gray-800 font-bold capitalize">{completeName}</h3>
             <p className="text-gray-700 text-base tracking-tight">{resume}</p>
-            <div className="py-3">
-                {links &&
-                    links.map(({ url, title }) => {
-                        return (
-                            <a
-                                key={`${url}-${title}`}
-                                href={url}
-                                className="inline-block text-gray-600 mr-2 h-4 w-4"
-                                rel="noopener noreferrer"
-                            >
-                                {socials[title]}
-                            </a>
-                        );
-                    })}
-            </div>
+            <div className="py-3">{links && <SpeakerLinks links={links} />}</div>
         </article>
     );
 }
