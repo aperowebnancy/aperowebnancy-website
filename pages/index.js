@@ -25,6 +25,7 @@ function FutureTalk({ talk, speakers }) {
             <div className="space-y-2 text-gray-600 text-lg font-medium">
                 <div className="flex items-center">
                     <CalendarIcon />
+                    <span className="sr-only">Date</span>
                     {new Date(talk.date).toLocaleDateString('fr-FR', {
                         year: 'numeric',
                         month: 'long',
@@ -39,6 +40,7 @@ function FutureTalk({ talk, speakers }) {
 
                 <div className="flex items-center">
                     <PeopleIcon />
+                    <span className="sr-only">Speaker</span>
                     {speakers.map(({ slug, frontMatter }, index) => (
                         <React.Fragment key={slug}>
                             {index > 0 ? ', ' : ''}

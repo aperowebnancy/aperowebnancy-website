@@ -20,6 +20,7 @@ export function SpeakerLinks({ links }) {
                 rel="noopener noreferrer"
             >
                 {socials[title]}
+                <span className="sr-only">{title}</span>
             </a>
         );
     });
