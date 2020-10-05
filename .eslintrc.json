@@ -1,5 +1,11 @@
 {
-    "extends": ["zyhou", "zyhou/react", "plugin:mdx/recommended"],
+    "extends": [
+        "zyhou",
+        "zyhou/react",
+        "zyhou/jest",
+        "plugin:mdx/recommended",
+        "plugin:testing-library/react"
+    ],
     "rules": {
         "jsx-a11y/anchor-is-valid": [
             "error",

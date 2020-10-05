@@ -15,7 +15,7 @@ import {
 } from '../components/Icons';
 import { Seo } from '../components/Seo';
 
-function FutureTalk({ talk, speakers }) {
+export function FutureTalk({ talk, speakers }) {
     return (
         <React.Fragment>
             <h3 className="text-2xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-3xl sm:leading-10">
