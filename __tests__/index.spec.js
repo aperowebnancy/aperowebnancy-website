@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, getByText, within } from '@testing-library/react';
 
-import Home, { FutureTalk } from './index';
+import Home, { FutureTalk } from '../pages/index';
 
 jest.mock('next/router', () => ({
     useRouter: jest.fn().mockImplementation(() => ({
