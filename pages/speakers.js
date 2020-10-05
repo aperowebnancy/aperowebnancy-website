@@ -21,7 +21,7 @@ function Speaker({ firstName, lastName, resume, picture, links }) {
     return (
         <article className="flex items-center flex-col max-w-sm rounded overflow-hidden shadow-lg m-2 px-6 py-4 w-64 h-64 text-sm md:text-base">
             <img className="object-cover rounded-full w-3/5" src={pathPicture} alt={completeName} />
-            <h3 className="text-gray-800 font-bold capitalize">{completeName}</h3>
+            <h2 className="text-gray-800 font-bold capitalize">{completeName}</h2>
             <p className="text-gray-700 text-base tracking-tight">{resume}</p>
             <div className="py-3">{links && <SpeakerLinks links={links} />}</div>
         </article>
@@ -55,7 +55,10 @@ export default function Speakers({ speakers }) {
                     </p>
                 </div>
                 <div className="flex flex-wrap justify-center">
-                    <a href={`mailto:${siteConfig.emailMeetup}`}>
+                    <a
+                        href={`mailto:${siteConfig.emailMeetup}`}
+                        aria-label="Rejoignez les autres speakers ! Proposez un sujet de talk."
+                    >
                         <Speaker key="you" {...youSpeaker} />
                     </a>
                     {speakers.map(({ slug, frontMatter }) => (
