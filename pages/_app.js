@@ -11,6 +11,8 @@ function MyApp({ Component, pageProps }) {
     return (
         <>
             <Head>
+                <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
                     rel="stylesheet"
