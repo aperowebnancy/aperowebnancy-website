@@ -7,6 +7,14 @@ import { getAllTalks } from '../lib/requestMdxFiles';
 import { MeetupIcon } from '../components/Icons';
 import { Seo } from '../components/Seo';
 
+function datesAreOnSameDay(firstDate, secondDate) {
+    return (
+        firstDate.getFullYear() === secondDate.getFullYear() &&
+        firstDate.getMonth() === secondDate.getMonth() &&
+        firstDate.getDate() === secondDate.getDate()
+    );
+}
+
 export default function Talks({ talks }) {
     return (
         <>
@@ -39,39 +47,35 @@ export default function Talks({ talks }) {
                 </div>
                 <ul className="talks-list flex flex-wrap -mx-2">
                     {talks.map(({ date, slug, frontMatter }) => {
+                        const isNextTalk = new Date() - new Date(date) < 0;
+                        const isCurrentTalk = datesAreOnSameDay(new Date(), new Date(date));
+                        const statusTalk = isNextTalk
+                            ? 'Prochainement'
+                            : isCurrentTalk
+                            ? "Aujourd'hui"
+                            : null;
                         return (
                             <li
                                 key={slug}
-                                className={`talk mb-4 w-full 
-                            ${
-                                new Date() - new Date(date) < 0
-                                    ? 'next-talk'
-                                    : new Date().getDate() == new Date(date).getDate() &&
-                                      new Date().getMonth() == new Date(date).getMonth() &&
-                                      new Date().getFullYear() == new Date(date).getFullYear()
-                                    ? 'current-talk'
-                                    : 'md:w-1/2 lg:w-1/3 xl:w-1/4'
-                            }`}
+                                className={`talk w-full ${
+                                    isNextTalk || isCurrentTalk ? 'mb-6 special-talk' : 'mb-4'
+                                } ${
+                                    isNextTalk
+                                        ? 'next-talk'
+                                        : isCurrentTalk
+                                        ? 'current-talk'
+                                        : 'md:w-1/2 lg:w-1/3 xl:w-1/4'
+                                }`}
                             >
-                                <article className="card h-full p-4 pt-8 mx-2 rounded-lg relative">
+                                <article className="card h-full p-4 pt-8 mx-2 rounded-lg relative shadow-md">
                                     <ul className="tags absolute top-0 flex">
-                                        {new Date() - new Date(date) < 0 && (
+                                        {statusTalk && (
                                             <li className="tag">
                                                 <div className="tag-content leading-3 overflow-hidden flex relative rounded-b-lg next-talk text-sm font-medium text-white p-2 pb-1 pt-2">
-                                                    <span>Prochainement</span>
+                                                    <span>{statusTalk}</span>
                                                 </div>
                                             </li>
                                         )}
-                                        {new Date().getDate() == new Date(date).getDate() &&
-                                            new Date().getMonth() == new Date(date).getMonth() &&
-                                            new Date().getFullYear() ==
-                                                new Date(date).getFullYear() && (
-                                                <li className="tag">
-                                                    <div className="tag-content leading-3 overflow-hidden flex relative rounded-b-lg next-talk text-sm font-medium text-white p-2 pb-1 pt-2">
-                                                        <span>Aujourd'hui</span>
-                                                    </div>
-                                                </li>
-                                            )}
                                         <li className="tag">
                                             <div className="tag-content leading-3 overflow-hidden flex relative rounded-b-lg date p-2 pb-1 pt-2">
                                                 <dl>
@@ -99,14 +103,24 @@ export default function Talks({ talks }) {
                                     </ul>
                                     <div className="informations flex flex-col xl:w-11/12">
                                         <div className="space-y-2 mb-6">
-                                            <h2 className="text-2xl leading-8 font-bold tracking-tight">
+                                            <h2
+                                                className={`leading-8 font-bold tracking-tight ${
+                                                    isNextTalk || isCurrentTalk
+                                                        ? 'text-3xl'
+                                                        : 'text-2xl'
+                                                }`}
+                                            >
                                                 <Link href={slug}>
                                                     <a className="text-gray-900 hover:text-red-600">
                                                         {frontMatter.title}
                                                     </a>
                                                 </Link>
                                             </h2>
-                                            <div className="max-w-none text-gray-700">
+                                            <div
+                                                className={`max-w-none text-gray-700 ${
+                                                    isNextTalk || isCurrentTalk ? 'text-xl' : ''
+                                                }`}
+                                            >
                                                 {frontMatter.description}
                                             </div>
                                         </div>
@@ -119,12 +133,7 @@ export default function Talks({ talks }) {
                                                     Lire plus &rarr;
                                                 </a>
                                             </Link>
-                                            {(new Date() - new Date(date) < 0 ||
-                                                (new Date().getDate() == new Date(date).getDate() &&
-                                                    new Date().getMonth() ==
-                                                        new Date(date).getMonth() &&
-                                                    new Date().getFullYear() ==
-                                                        new Date(date).getFullYear())) && (
+                                            {statusTalk && (
                                                 <div className="flex mx-4">
                                                     <a
                                                         href={frontMatter.meetupLink}

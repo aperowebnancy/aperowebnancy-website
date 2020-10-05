@@ -19,7 +19,7 @@
                             height: 100%;
                         }
                         &::before {
-                            background-color: $red-800;
+                            background-color: $gray-900;
                         }
                         &::after {
                             background-color: $red-600;
@@ -57,17 +57,7 @@
                 }
             }
         }
-        &.next-talk {
-            article {
-                @include boxShadow(15px, 0.3, $red-700);
-                @include md-min {
-                    &:hover {
-                        @include boxShadow(20px, 0.4, $red-700, 5px, y);
-                    }
-                }
-            }
-        }
-        &.current-talk {
+        &.special-talk {
             article {
                 @include boxShadow(15px, 0.3, $red-700);
                 @include md-min {
