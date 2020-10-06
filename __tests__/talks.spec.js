@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, getByText, within } from '@testing-library/react';
+import { render, screen, getByText } from '@testing-library/react';
 
 import Talks from '../pages/talks';
 
@@ -60,20 +60,35 @@ describe('Talks Components', () => {
                 screen.getByRole('heading', { level: 1, name: 'Précédents talks' }),
             ).toBeInTheDocument();
 
-            const listTalks = screen.getByRole('list');
+            const listTalks = screen.getAllByRole('article');
 
             const valuesTalks = [
-                ['A new third talk #3', '19 oct. 2020', 'A new third talk description'],
-                ['A new second talk #2', '18 oct. 2020', 'A new second talk description'],
-                ['A new first talk #1', '17 oct. 2020', 'A new first talk description'],
+                {
+                    edition: '#3',
+                    title: 'A new third talk',
+                    description: 'A new third talk description',
+                    date: '19 oct. 2020',
+                },
+                {
+                    edition: '#2',
+                    title: 'A new second talk',
+                    description: 'A new second talk description',
+                    date: '18 oct. 2020',
+                },
+                {
+                    edition: '#1',
+                    title: 'A new first talk',
+                    description: 'A new first talk description',
+                    date: '17 oct. 2020',
+                },
             ];
 
-            valuesTalks.forEach(([title, date, description]) => {
-                const li = getByText(listTalks, title).closest('li');
-                const utils = within(li);
-                expect(utils.getByText(title)).toBeInTheDocument();
-                expect(utils.getByText(date)).toBeInTheDocument();
-                expect(utils.getByText(description)).toBeInTheDocument();
+            valuesTalks.forEach(({ title, date, description, edition }, index) => {
+                const article = listTalks[index];
+                expect(getByText(article, edition)).toBeInTheDocument();
+                expect(getByText(article, title)).toBeInTheDocument();
+                expect(getByText(article, date)).toBeInTheDocument();
+                expect(getByText(article, description)).toBeInTheDocument();
             });
         });
 
@@ -81,6 +96,15 @@ describe('Talks Components', () => {
             const talks = [
                 {
                     date: new Date('2020-10-21').toISOString(),
+                    slug: 'a-new-five-talk',
+                    frontMatter: {
+                        edition: 5,
+                        title: 'A new five talk',
+                        description: 'A new five talk description',
+                    },
+                },
+                {
+                    date: new Date('2020-10-20').toISOString(),
                     slug: 'a-new-four-talk',
                     frontMatter: {
                         edition: 4,
@@ -97,23 +121,53 @@ describe('Talks Components', () => {
                 screen.getByRole('heading', { level: 1, name: 'Précédents talks' }),
             ).toBeInTheDocument();
 
-            const listTalks = screen.getByRole('list');
+            const listTalks = screen.getAllByRole('article');
 
             const valuesTalks = [
-                ['A new four talk #4', '21 oct. 2020', 'A new four talk description', true],
-                ['A new third talk #3', '19 oct. 2020', 'A new third talk description', false],
-                ['A new second talk #2', '18 oct. 2020', 'A new second talk description', false],
-                ['A new first talk #1', '17 oct. 2020', 'A new first talk description', false],
+                {
+                    edition: '#5',
+                    title: 'A new five talk',
+                    description: 'A new five talk description',
+                    date: '21 oct. 2020',
+                    statusTalk: 'Prochainement',
+                },
+                {
+                    edition: '#4',
+                    title: 'A new four talk',
+                    description: 'A new four talk description',
+                    date: '20 oct. 2020',
+                    statusTalk: "Aujourd'hui",
+                },
+                {
+                    edition: '#3',
+                    title: 'A new third talk',
+                    description: 'A new third talk description',
+                    date: '19 oct. 2020',
+                },
+                {
+                    edition: '#2',
+                    title: 'A new second talk',
+                    description: 'A new second talk description',
+                    date: '18 oct. 2020',
+                },
+                {
+                    edition: '#1',
+                    title: 'A new first talk',
+                    description: 'A new first talk description',
+                    date: '17 oct. 2020',
+                },
             ];
 
-            valuesTalks.forEach(([title, date, description, isNextTalk]) => {
-                const li = getByText(listTalks, title).closest('li');
-                const utils = within(li);
-                expect(utils.getByText(title)).toBeInTheDocument();
-                expect(utils.getByText(date)).toBeInTheDocument();
-                expect(utils.getByText(description)).toBeInTheDocument();
-                if (isNextTalk) {
-                    expect(utils.getByText('Inscrivez-vous !')).toBeInTheDocument();
+            valuesTalks.forEach(({ title, date, description, edition, statusTalk }, index) => {
+                const article = listTalks[index];
+                expect(getByText(article, edition)).toBeInTheDocument();
+                expect(getByText(article, title)).toBeInTheDocument();
+                expect(getByText(article, date)).toBeInTheDocument();
+                expect(getByText(article, description)).toBeInTheDocument();
+
+                if (statusTalk) {
+                    expect(getByText(article, statusTalk)).toBeInTheDocument();
+                    expect(getByText(article, 'Inscrivez-vous !')).toBeInTheDocument();
                 }
             });
         });
