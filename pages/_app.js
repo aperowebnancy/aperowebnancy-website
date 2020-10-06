@@ -19,6 +19,14 @@ function MyApp({ Component, pageProps }) {
                     rel="stylesheet"
                 />
                 <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+                <link
+                    rel="webmention"
+                    href="https://webmention.io/aperowebnancy.netlify.app/webmention"
+                />
+                <link
+                    rel="pingback"
+                    href="https://webmention.io/aperowebnancy.netlify.app/xmlrpc"
+                />
                 <meta
                     name="google-site-verification"
                     content="33EUCC-Zc5EVJc60ah7uEsU9Vps2Ysazfn0EhvDj4eY"
