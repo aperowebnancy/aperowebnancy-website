@@ -55,6 +55,16 @@
         "code",
         "blog"
       ]
+    },
+    {
+      "login": "aymericingargiola",
+      "name": "aymericingargiola",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/49032117?v=4",
+      "profile": "https://www.youtube.com/channel/UCHhdhKc4nOABGdqtEvqpsTw",
+      "contributions": [
+        "code",
+        "a11y"
+      ]
     }
   ],
   "contributorsPerLine": 7,
