@@ -7,6 +7,14 @@ import { getAllTalks } from '../lib/requestMdxFiles';
 import { MeetupIcon } from '../components/Icons';
 import { Seo } from '../components/Seo';
 
+function datesAreOnSameDay(firstDate, secondDate) {
+    return (
+        firstDate.getFullYear() === secondDate.getFullYear() &&
+        firstDate.getMonth() === secondDate.getMonth() &&
+        firstDate.getDate() === secondDate.getDate()
+    );
+}
+
 export default function Talks({ talks }) {
     return (
         <>
@@ -37,33 +45,82 @@ export default function Talks({ talks }) {
                         Un sujet ? N&apos;hésitez pas à nous contacter pour nous le soumettre.
                     </p>
                 </div>
-                <ul className="divide-y divide-gray-200">
+                <ul className="talks-list flex flex-wrap -mx-2">
                     {talks.map(({ date, slug, frontMatter }) => {
+                        const isNextTalk = new Date() - new Date(date) < 0;
+                        const isCurrentTalk = datesAreOnSameDay(new Date(), new Date(date));
+                        const statusTalk = isNextTalk
+                            ? 'Prochainement'
+                            : isCurrentTalk
+                            ? "Aujourd'hui"
+                            : null;
                         return (
-                            <li key={slug} className="py-12">
-                                <article className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
-                                    <dl>
-                                        <dt className="sr-only">Published on</dt>
-                                        <dd className="text-base leading-6 font-medium">
-                                            <time dateTime={date}>
-                                                {new Date(date).toLocaleDateString('fr-FR', {
-                                                    year: 'numeric',
-                                                    month: 'short',
-                                                    day: 'numeric',
-                                                })}
-                                            </time>
-                                        </dd>
-                                    </dl>
-                                    <div className="space-y-5 xl:col-span-3">
-                                        <div className="space-y-6">
-                                            <h2 className="text-2xl leading-8 font-bold tracking-tight">
+                            <li
+                                key={slug}
+                                className={`talk w-full ${
+                                    isNextTalk || isCurrentTalk ? 'mb-6 special-talk' : 'mb-4'
+                                } ${
+                                    isNextTalk
+                                        ? 'next-talk'
+                                        : isCurrentTalk
+                                        ? 'current-talk'
+                                        : 'md:w-1/2 lg:w-1/3 xl:w-1/4'
+                                }`}
+                            >
+                                <article className="card h-full p-4 pt-8 mx-2 rounded-lg relative shadow-md">
+                                    <ul className="tags absolute top-0 flex">
+                                        {statusTalk && (
+                                            <li className="tag">
+                                                <div className="tag-content leading-3 overflow-hidden flex relative rounded-b-lg next-talk text-sm font-medium text-white p-2 pb-1 pt-2">
+                                                    <span>{statusTalk}</span>
+                                                </div>
+                                            </li>
+                                        )}
+                                        <li className="tag">
+                                            <div className="tag-content leading-3 overflow-hidden flex relative rounded-b-lg date p-2 pb-1 pt-2">
+                                                <dl>
+                                                    <dt className="sr-only">Published on</dt>
+                                                    <dd className="text-sm font-medium text-white">
+                                                        <time dateTime={date}>
+                                                            {new Date(date).toLocaleDateString(
+                                                                'fr-FR',
+                                                                {
+                                                                    year: 'numeric',
+                                                                    month: 'short',
+                                                                    day: 'numeric',
+                                                                },
+                                                            )}
+                                                        </time>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </li>
+                                        <li className="tag">
+                                            <div className="tag-content leading-3 overflow-hidden flex relative rounded-b-lg edition text-sm font-medium text-white p-2 pb-1 pt-2">
+                                                <span>#{frontMatter.edition}</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div className="informations flex flex-col xl:w-11/12">
+                                        <div className="space-y-2 mb-6">
+                                            <h2
+                                                className={`leading-8 font-bold tracking-tight ${
+                                                    isNextTalk || isCurrentTalk
+                                                        ? 'text-3xl'
+                                                        : 'text-2xl'
+                                                }`}
+                                            >
                                                 <Link href={slug}>
-                                                    <a className="text-gray-900">
-                                                        {frontMatter.title} #{frontMatter.edition}
+                                                    <a className="text-gray-900 hover:text-red-600">
+                                                        {frontMatter.title}
                                                     </a>
                                                 </Link>
                                             </h2>
-                                            <div className="max-w-none text-gray-700">
+                                            <div
+                                                className={`max-w-none text-gray-700 ${
+                                                    isNextTalk || isCurrentTalk ? 'text-xl' : ''
+                                                }`}
+                                            >
                                                 {frontMatter.description}
                                             </div>
                                         </div>
@@ -76,7 +133,7 @@ export default function Talks({ talks }) {
                                                     Lire plus &rarr;
                                                 </a>
                                             </Link>
-                                            {new Date() - new Date(date) < 0 && (
+                                            {statusTalk && (
                                                 <div className="flex mx-4">
                                                     <a
                                                         href={frontMatter.meetupLink}

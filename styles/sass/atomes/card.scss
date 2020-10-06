@@ -1,0 +1,9 @@
+.card {
+    transition: $transition-default;
+    @include md-min {
+        &:hover {
+            @include boxShadow(20px, 0.18, $red-700, 5px, y);
+            transform: translateY(-5px);
+        }
+    }
+}

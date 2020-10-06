@@ -1,0 +1,71 @@
+$screen-xs: map-get($grid-breakpoints, "xs");
+$screen-sm: map-get($grid-breakpoints, "sm");
+$screen-md: map-get($grid-breakpoints, "md");
+$screen-lg: map-get($grid-breakpoints, "lg");
+$screen-xl: map-get($grid-breakpoints, "xl");
+
+@mixin xs-max {
+    @media screen and (max-width: #{$screen-sm - 1}) {
+        @content;
+    }
+}
+
+@mixin sm-min {
+    @media screen and (min-width: #{$screen-sm}) {
+        @content;
+    }
+}
+
+@mixin sm-max {
+    @media screen and (max-width: #{$screen-md - 1}) {
+        @content;
+    }
+}
+
+@mixin sm-only {
+    @media screen and (min-width: #{$screen-sm}) and (max-width: #{$screen-md - 1}) {
+        @content;
+    }
+}
+
+@mixin md-min {
+    @media screen and (min-width: #{$screen-md}) {
+        @content;
+    }
+}
+
+@mixin md-max {
+    @media screen and (max-width: #{$screen-lg - 1}) {
+        @content;
+    }
+}
+
+@mixin md-only {
+    @media screen and (min-width: #{$screen-md}) and (max-width: #{$screen-lg - 1}) {
+        @content;
+    }
+}
+
+@mixin lg-min {
+    @media screen and (min-width: #{$screen-lg}) {
+        @content;
+    }
+}
+
+@mixin lg-max {
+    @media screen and (max-width: #{$screen-xl - 1}) {
+        @content;
+    }
+}
+
+@mixin lg-only {
+    @media screen and (min-width: #{$screen-lg}) and (max-width: #{$screen-xl - 1}) {
+        @content;
+    }
+}
+
+@mixin xl-min {
+    @media screen and (min-width: #{$screen-xl}) {
+        @content;
+    }
+}
