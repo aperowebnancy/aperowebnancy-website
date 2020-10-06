@@ -85,7 +85,9 @@ Quel que soit votre type d'implication, c'est toujours une bonne chose que d'ins
 
 Tout d'abord vous devez avoir un compte GitHub ainsi que [git installé](https://docs.github.com/en/github/getting-started-with-github/set-up-git) sur votre ordinateur.
 Ensuite vous devez ["_forker_"](https://guides.github.com/activities/forking/) le dépôt du projet et le cloner localement.
-En parallèle, pensez à installer [Node.js](https://nodejs.org/en/download/) en version 12.18.3 (LTS) sur votre ordinateur. Node est un environnement d'exécution JavaScript (comme l'est un navigateur).
+En parallèle, pensez à installer [Node.js](https://nodejs.org/en/download/) en version 14.13.0 (LTS) sur votre ordinateur. Node est un environnement d'exécution JavaScript (comme l'est un navigateur).
+
+_Pour ceux qui utilise [nvm](https://github.com/nvm-sh/nvm), vous n'avez rien à faire, nous avons ajouté un .nvmrc qui contient la version de Node.js_
 
 ### Installer le projet
 
