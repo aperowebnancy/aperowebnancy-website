@@ -64,12 +64,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://euregan.github.io"><img src="https://avatars1.githubusercontent.com/u/6170695?v=4" width="100px;" alt=""/><br /><sub><b>Valentin Manceaux-Panot</b></sub></a><br /><a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=Euregan" title="Documentation">📖</a></td>
     <td align="center"><a href="https://vaga.io"><img src="https://avatars2.githubusercontent.com/u/1078179?v=4" width="100px;" alt=""/><br /><sub><b>Fabien</b></sub></a><br /><a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=vaga" title="Code">💻</a></td>
     <td align="center"><a href="http://zooly.dev"><img src="https://avatars1.githubusercontent.com/u/7328625?v=4" width="100px;" alt=""/><br /><sub><b>Hugo Torzuoli</b></sub></a><br /><a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=HZooly" title="Code">💻</a> <a href="#blog-HZooly" title="Blogposts">📝</a></td>
+    <td align="center"><a href="https://www.youtube.com/channel/UCHhdhKc4nOABGdqtEvqpsTw"><img src="https://avatars3.githubusercontent.com/u/49032117?v=4" width="100px;" alt=""/><br /><sub><b>aymericingargiola</b></sub></a><br /><a href="https://github.com/aperowebnancy/aperowebnancy-website/commits?author=aymericingargiola" title="Code">💻</a> <a href="#a11y-aymericingargiola" title="Accessibility">️️️️♿️</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- prettier-ignore-end -->
 
