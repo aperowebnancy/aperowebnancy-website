@@ -51,7 +51,7 @@ export const Footer = () => (
                 <a
                     href={siteConfig.twitterUrl}
                     className="h-6 w-6 text-gray-500 hover:text-gray-600"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer me"
                 >
                     <TwitterIcon />
                     <span className="sr-only">Twitter</span>
