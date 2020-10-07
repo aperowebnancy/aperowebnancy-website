@@ -241,9 +241,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                 <ShareMore title={frontMatter.title} slug={slug} />
                             </div>
                             <div className="text-blue-500 flex space-x-2">
-                                <WebMentionCounter
-                                    target={isServerSide() ? null : window?.location?.href}
-                                />
+                                <WebMentionCounter target={`${siteConfig.siteUrl}/talks/${slug}`} />
                             </div>
                         </div>
                         {(next || previous) && (
