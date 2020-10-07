@@ -9,15 +9,12 @@ import matter from 'gray-matter';
 import MDX from '@mdx-js/runtime';
 
 import { siteConfig } from '../../lib/siteConfig';
-import {
-    MeetupIcon,
-    Seo,
-    ShareIcon,
-    SpeakerLinks,
-    TwitterIcon,
-    WebMentionCounter,
-    Youtube,
-} from '../../components';
+
+import { MeetupIcon, ShareIcon, TwitterIcon } from '../../components/Icons';
+import { Seo } from '../../components/Seo';
+import { SpeakerLinks } from '../../components/SpeakerLinks';
+import { WebMentionCounter } from '../../components/WebMentionCounter';
+import { Youtube } from '../../components/Youtube';
 
 const mdxComponents = {
     Youtube,
