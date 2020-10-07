@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "test:watch": "jest --watch",
+        "test:watch": "NODE_ICU_DATA=node_modules/full-icu jest --watch",
         "test": "NODE_ICU_DATA=node_modules/full-icu jest",
         "build": "next build",
         "postbuild": "next-sitemap",
