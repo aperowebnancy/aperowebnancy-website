@@ -1,1 +1,1 @@
-export * from './WebMentionCount';
+export * from './WebMentionCounter';

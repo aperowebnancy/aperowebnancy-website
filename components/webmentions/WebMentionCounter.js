@@ -17,7 +17,7 @@ const fetchCounts = async (target) => {
     });
 };
 
-export const WebMentionCount = ({ target }) => {
+export const WebMentionCounter = ({ target }) => {
     const [counts, setCounts] = useState(initialCounts);
 
     // Get counts on `target` change
@@ -63,11 +63,11 @@ export const WebMentionCount = ({ target }) => {
     );
 };
 
-WebMentionCount.defaultProps = {
+WebMentionCounter.defaultProps = {
     target: null,
 };
 
-WebMentionCount.propTypes = {
+WebMentionCounter.propTypes = {
     target: PropTypes.string,
 };
 

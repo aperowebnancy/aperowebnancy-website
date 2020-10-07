@@ -15,7 +15,7 @@ import {
     ShareIcon,
     SpeakerLinks,
     TwitterIcon,
-    WebMentionCount,
+    WebMentionCounter,
     Youtube,
 } from '../../components';
 
@@ -244,7 +244,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                 <ShareMore title={frontMatter.title} slug={slug} />
                             </div>
                             <div className="text-blue-500 flex space-x-2">
-                                <WebMentionCount
+                                <WebMentionCounter
                                     target={isServerSide() ? null : window?.location?.href}
                                 />
                             </div>
