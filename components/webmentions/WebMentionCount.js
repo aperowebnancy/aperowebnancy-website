@@ -41,30 +41,22 @@ export const WebMentionCount = ({ target }) => {
 
     return (
         <div>
-            {counts === undefined && (
-                <p data-testid="failed">
-                    Failed to load counts{' '}
-                    <span role="img" aria-label="Sad">
-                        😞
-                    </span>
-                </p>
-            )}
             {counts && (
                 <>
-                    <p data-testid="likes">
+                    <span data-testid="likes">
                         {counts.type.like || 0}
                         {' Likes '}&bull;
-                    </p>
-                    <p data-testid="replies">
+                    </span>
+                    <span data-testid="replies">
                         {' '}
                         {counts.type.reply || 0}
                         {' Replies '}&bull;
-                    </p>
-                    <p data-testid="reposts">
+                    </span>
+                    <span data-testid="reposts">
                         {' '}
                         {counts.type.repost || 0}
                         {' Reposts'}
-                    </p>
+                    </span>
                 </>
             )}
         </div>

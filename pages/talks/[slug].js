@@ -9,7 +9,15 @@ import matter from 'gray-matter';
 import MDX from '@mdx-js/runtime';
 
 import { siteConfig } from '../../lib/siteConfig';
-import { MeetupIcon, Seo, ShareIcon, SpeakerLinks, TwitterIcon, Youtube } from '../../components';
+import {
+    MeetupIcon,
+    Seo,
+    ShareIcon,
+    SpeakerLinks,
+    TwitterIcon,
+    WebMentionCount,
+    Youtube,
+} from '../../components';
 
 const mdxComponents = {
     Youtube,
@@ -234,6 +242,11 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                     Twitter
                                 </a>
                                 <ShareMore title={frontMatter.title} slug={slug} />
+                            </div>
+                            <div className="text-blue-500 flex space-x-2">
+                                <WebMentionCount
+                                    target={isServerSide() ? null : window?.location?.href}
+                                />
                             </div>
                         </div>
                         {(next || previous) && (
