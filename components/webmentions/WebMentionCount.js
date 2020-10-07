@@ -44,18 +44,18 @@ export const WebMentionCount = ({ target }) => {
             {counts && (
                 <>
                     <span data-testid="likes">
-                        {counts.type.like || 0}
-                        {' Likes '}&bull;
+                        {counts.type.like}
+                        {` j'aime`}
                     </span>
+                    <Separator />
                     <span data-testid="replies">
-                        {' '}
-                        {counts.type.reply || 0}
-                        {' Replies '}&bull;
+                        {counts.type.reply}
+                        {pluralize(` réponse`, counts.type.reply)}
                     </span>
+                    <Separator />
                     <span data-testid="reposts">
-                        {' '}
-                        {counts.type.repost || 0}
-                        {' Reposts'}
+                        {counts.type.repost}
+                        {pluralize(` partage`, counts.type.repost)}
                     </span>
                 </>
             )}
@@ -70,3 +70,9 @@ WebMentionCount.defaultProps = {
 WebMentionCount.propTypes = {
     target: PropTypes.string,
 };
+
+const Separator = () => {
+    return <span>&nbsp;&bull;&nbsp;</span>;
+};
+
+const pluralize = (word, count) => `${word}${count > 1 ? 's' : ''}`;
