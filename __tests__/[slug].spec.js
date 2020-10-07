@@ -100,6 +100,18 @@ describe('Talk Components', () => {
             expect(screen.getByText('second talk #2')).toBeInTheDocument();
             expect(screen.getByText('zero talk #0')).toBeInTheDocument();
         });
+
+        it('should render web mentions', () => {
+            const talk = {
+                ...defaultTalk,
+            };
+
+            render(<Talk {...talk} />);
+
+            expect(screen.getByText("0 j'aime")).toBeInTheDocument();
+            expect(screen.getByText('0 réponse')).toBeInTheDocument();
+            expect(screen.getByText('0 partage')).toBeInTheDocument();
+        });
     });
 
     afterEach(() => {
