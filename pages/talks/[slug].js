@@ -9,10 +9,10 @@ import matter from 'gray-matter';
 import MDX from '@mdx-js/runtime';
 
 import { siteConfig } from '../../lib/siteConfig';
-
-import { MeetupIcon, ShareIcon, TwitterIcon } from '../../components/Icons';
+import { ShareIcon, MeetupIcon, TwitterIcon } from '../../components/Icons';
 import { Seo } from '../../components/Seo';
 import { SpeakerLinks } from '../../components/SpeakerLinks';
+import { WebMentions } from '../../components/WebMentions';
 import { WebMentionCounter } from '../../components/WebMentionCounter';
 import { Youtube } from '../../components/Youtube';
 
@@ -112,11 +112,11 @@ ShareMore.propTypes = {
 export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previous }) {
     const talkJsonLd = getTalkJsonLd({ ...frontMatter, slug, image: '', speakers });
 
+    const postUrl = `${siteConfig.siteUrl}/talks/${slug}`;
+
     const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         frontMatter.title,
-    )}&via=${siteConfig.twitterHandler.replace('@', '')}&url=${encodeURIComponent(
-        `${siteConfig.siteUrl}/talks/${slug}`,
-    )}`;
+    )}&via=${siteConfig.twitterHandler.replace('@', '')}&url=${encodeURIComponent(postUrl)}`;
 
     const githubTalkUrl = `https://github.com/aperowebnancy/aperowebnancy-website/blob/main/talks/${frontMatter.date}_${slug}.mdx`;
 
@@ -196,6 +196,9 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                     <div className="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2">
                         <div className="prose max-w-none pt-10 pb-8">
                             <div dangerouslySetInnerHTML={{ __html: mdxHtml }} />
+                        </div>
+                        <div className="pt-6 pb-8 xl:pb-0">
+                            <WebMentions postUrl={postUrl} />
                         </div>
                         <div className="pt-6 pb-8 xl:pb-0">
                             <p>
