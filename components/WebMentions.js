@@ -1,50 +1,92 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import { HeartIcon, QuestionMarkIcon, RePostIcon } from './Icons';
+
 const perPage = 50;
 
-async function getMentions(page, postsPerPage, postURL) {
+async function getMentions(target) {
     const resp = await fetch(
-        `https://webmention.io/api/mentions?page=${page}&per-page=${postsPerPage}&target=${postURL}`,
+        `https://webmention.io/api/mentions.jf2?&per-page=${perPage}&target=${target}`,
     );
-    const { links } = await resp.json();
-    return links;
+    const { children } = await resp.json();
+    return children;
 }
 
-export function WebMentions({ postUrl }) {
-    const [page, setPage] = useState(0);
+export function WebMentions({ target }) {
+    const [showMentions, setShowMentions] = useState(false);
     const [mentions, addMentions] = useState([]);
 
     useEffect(() => {
         const fetchMentions = async () => {
-            const olderMentions = await getMentions(page, perPage, postUrl);
+            const olderMentions = await getMentions(target);
             addMentions((mentions) => [...mentions, ...olderMentions]);
         };
         fetchMentions();
-    }, [page, postUrl]);
+    }, [target]);
+
+    const onShowMentions = () => {
+        setShowMentions((showMentions) => !showMentions);
+    };
+
+    const totalLike = mentions.filter((mention) => mention['wm-property'] === 'like-of').length;
+    const totalRepost = mentions.filter((mention) => mention['wm-property'] === 'repost-of').length;
 
     return (
         <>
+            <h3>Webmentions</h3>
             <div>
-                {mentions.map((mention, index) => (
-                    <div key={mention.data.author.name + index}>
-                        <p>{mention.data.author.name}</p>
+                <div>
+                    <span className="inline-block h-6 w-6">
+                        <HeartIcon />
+                        <span className="sr-only">Nombre de j&apos;aime</span>
+                    </span>
+                    <span>{totalLike}</span>
+                    <span className="inline-block h-6 w-6">
+                        <RePostIcon />
+                        <span className="sr-only">Nombre de partages</span>
+                    </span>
+                    <span>{totalRepost}</span>
+                    <button onClick={onShowMentions}>
+                        {showMentions ? 'Cacher' : 'Voir'} les mentions
+                    </button>
+
+                    <a
+                        href="https://indieweb.org/webmention-fr"
+                        className="inline-block h-6 w-6 text-gray-500 hover:text-gray-600"
+                        rel="noopener noreferrer"
+                    >
+                        <QuestionMarkIcon />
+                        Qu&apos;est-ce que c&apos;est ?
+                    </a>
+                </div>
+                {showMentions && (
+                    <div>
+                        <ol>
+                            {showMentions &&
+                                mentions.map((mention, index) => {
+                                    const mentionType =
+                                        mention['wm-property'] === 'like-of' ? 'aime' : 'repost';
+                                    return (
+                                        <li key={mention.author.name + index}>
+                                            <a href={mention.author.url}>
+                                                <img
+                                                    alt={mention.author.name}
+                                                    src={mention.author.photo}
+                                                />
+                                            </a>
+                                            {mention.author.name} {mentionType}
+                                        </li>
+                                    );
+                                })}
+                        </ol>
                     </div>
-                ))}
+                )}
             </div>
-            {mentions.length > 0 && (
-                <button
-                    onClick={() => {
-                        setPage(page + 1);
-                    }}
-                >
-                    Voir plus
-                </button>
-            )}
         </>
     );
 }
 
 WebMentions.propTypes = {
-    postUrl: PropTypes.string.isRequired,
+    target: PropTypes.string.isRequired,
 };

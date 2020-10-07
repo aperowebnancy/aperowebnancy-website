@@ -43,17 +43,17 @@ export const WebMentionCounter = ({ target }) => {
         <div>
             {counts && (
                 <>
-                    <span data-testid="likes">
+                    <span>
                         {counts.type.like}
                         {` j'aime`}
                     </span>
                     <Separator />
-                    <span data-testid="replies">
+                    <span>
                         {counts.type.reply}
                         {pluralize(` réponse`, counts.type.reply)}
                     </span>
                     <Separator />
-                    <span data-testid="reposts">
+                    <span>
                         {counts.type.repost}
                         {pluralize(` partage`, counts.type.repost)}
                     </span>

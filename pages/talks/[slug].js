@@ -198,7 +198,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                             <div dangerouslySetInnerHTML={{ __html: mdxHtml }} />
                         </div>
                         <div className="pt-6 pb-8 xl:pb-0">
-                            <WebMentions postUrl={postUrl} />
+                            <WebMentions target={postUrl} />
                         </div>
                         <div className="pt-6 pb-8 xl:pb-0">
                             <p>
@@ -244,7 +244,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                 <ShareMore title={frontMatter.title} slug={slug} />
                             </div>
                             <div className="text-blue-500 flex space-x-2">
-                                <WebMentionCounter target={`${siteConfig.siteUrl}/talks/${slug}`} />
+                                <WebMentionCounter target={postUrl} />
                             </div>
                         </div>
                         {(next || previous) && (
