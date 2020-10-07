@@ -9,34 +9,12 @@ import matter from 'gray-matter';
 import MDX from '@mdx-js/runtime';
 
 import { siteConfig } from '../../lib/siteConfig';
-import { ShareIcon, MeetupIcon, TwitterIcon } from '../../components/Icons';
-import { SpeakerLinks } from '../../components/SpeakerLinks';
+
+import { MeetupIcon, ShareIcon, TwitterIcon } from '../../components/Icons';
 import { Seo } from '../../components/Seo';
-
-function Youtube({ videoId, title }) {
-    return (
-        <figure>
-            <div className="relative pb-9/16">
-                <iframe
-                    title={title}
-                    className="absolute inset-0 h-full w-full"
-                    width="560"
-                    height="315"
-                    src={`https://www.youtube.com/embed/${videoId}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                ></iframe>
-            </div>
-            <figcaption className="italic text-center">{title}</figcaption>
-        </figure>
-    );
-}
-
-Youtube.propTypes = {
-    videoId: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-};
+import { SpeakerLinks } from '../../components/SpeakerLinks';
+import { WebMentionCounter } from '../../components/WebMentionCounter';
+import { Youtube } from '../../components/Youtube';
 
 const mdxComponents = {
     Youtube,
@@ -261,6 +239,9 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                     Twitter
                                 </a>
                                 <ShareMore title={frontMatter.title} slug={slug} />
+                            </div>
+                            <div className="text-blue-500 flex space-x-2">
+                                <WebMentionCounter target={`${siteConfig.siteUrl}/talks/${slug}`} />
                             </div>
                         </div>
                         {(next || previous) && (
