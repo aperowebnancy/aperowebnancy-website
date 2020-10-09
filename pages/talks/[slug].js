@@ -197,7 +197,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                         <div className="prose max-w-none pt-10 pb-8">
                             <div dangerouslySetInnerHTML={{ __html: mdxHtml }} />
                         </div>
-                        <div className="pt-6 pb-8 xl:pb-0">
+                        <div className="pt-6 pb-6">
                             <WebMentions target={postUrl} />
                         </div>
                         <div className="pt-6 pb-8 xl:pb-0">

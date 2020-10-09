@@ -17,7 +17,13 @@ const fetchCounts = async (target) => {
     });
 };
 
-export const WebMentionCounter = ({ target }) => {
+function Separator() {
+    return <span>&nbsp;&bull;&nbsp;</span>;
+}
+
+const pluralize = (word, count) => `${word}${count > 1 ? 's' : ''}`;
+
+export function WebMentionCounter({ target }) {
     const [counts, setCounts] = useState(initialCounts);
 
     // Get counts on `target` change
@@ -40,28 +46,24 @@ export const WebMentionCounter = ({ target }) => {
     }, [target]);
 
     return (
-        <div>
-            {counts && (
-                <>
-                    <span>
-                        {counts.type.like}
-                        {` j'aime`}
-                    </span>
-                    <Separator />
-                    <span>
-                        {counts.type.reply}
-                        {pluralize(` réponse`, counts.type.reply)}
-                    </span>
-                    <Separator />
-                    <span>
-                        {counts.type.repost}
-                        {pluralize(` partage`, counts.type.repost)}
-                    </span>
-                </>
-            )}
-        </div>
+        <a href="#mentions">
+            <span>
+                {counts.type.like}
+                {` j'aime`}
+            </span>
+            <Separator />
+            <span>
+                {counts.type.reply}
+                {pluralize(` réponse`, counts.type.reply)}
+            </span>
+            <Separator />
+            <span>
+                {counts.type.repost}
+                {pluralize(` partage`, counts.type.repost)}
+            </span>
+        </a>
     );
-};
+}
 
 WebMentionCounter.defaultProps = {
     target: null,
@@ -70,9 +72,3 @@ WebMentionCounter.defaultProps = {
 WebMentionCounter.propTypes = {
     target: PropTypes.string,
 };
-
-const Separator = () => {
-    return <span>&nbsp;&bull;&nbsp;</span>;
-};
-
-const pluralize = (word, count) => `${word}${count > 1 ? 's' : ''}`;
