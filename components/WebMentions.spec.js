@@ -11,6 +11,13 @@ describe('WebMentions Components', () => {
     });
 
     describe('<WebMentions />', () => {
+        it('should render id="mentions" on root element for anchor', async () => {
+            const { container } = render(<WebMentions target="all" />);
+            await screen.findByText('1');
+
+            expect(container.querySelector('#mentions')).toBeInTheDocument();
+        });
+
         it('should render default web mentions', async () => {
             render(<WebMentions target="all" />);
             await screen.findByText('1');

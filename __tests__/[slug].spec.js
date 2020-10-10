@@ -10,14 +10,16 @@ jest.mock('next/router', () => ({
 }));
 
 jest.mock('../components/WebMentionCounter', () => ({
-    WebMentionCounter: function WebMentionCounter() {
-        return <p>WebMentionCounter</p>;
+    // eslint-disable-next-line react/prop-types
+    WebMentionCounter: function WebMentionCounter({ target }) {
+        return <p>WebMentionCounter {target}</p>;
     },
 }));
 
 jest.mock('../components/WebMentions', () => ({
-    WebMentions: function WebMentions() {
-        return <p>WebMentions</p>;
+    // eslint-disable-next-line react/prop-types
+    WebMentions: function WebMentions({ target }) {
+        return <p>WebMentions {target}</p>;
     },
 }));
 
@@ -116,8 +118,14 @@ describe('Talk Components', () => {
         it('should render web mentions components', () => {
             render(<Talk {...defaultTalk} />);
 
-            expect(screen.getByText('WebMentionCounter')).toBeInTheDocument();
-            expect(screen.getByText('WebMentions')).toBeInTheDocument();
+            expect(
+                screen.getByText(
+                    'WebMentionCounter https://aperowebnancy.netlify.app/talks/a-new-talk',
+                ),
+            ).toBeInTheDocument();
+            expect(
+                screen.getByText('WebMentions https://aperowebnancy.netlify.app/talks/a-new-talk'),
+            ).toBeInTheDocument();
         });
     });
 
