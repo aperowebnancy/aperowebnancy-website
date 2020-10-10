@@ -1,34 +1,21 @@
 <!--
-Thanks for your interest in the project. Bugs filed and PRs submitted are appreciated!
+Merci de votre intérêt pour le projet.
 
-Please make sure that you are familiar with and follow the Code of Conduct for
-this project (found in the CODE_OF_CONDUCT.md file).
-
-Also, please make sure you're familiar with and follow the instructions in the
-contributing guidelines (found in the CONTRIBUTING.md file).
-
-Please fill out the information below to expedite the review and (hopefully)
-merge of your pull request!
+Veuillez remplir les informations ci-dessous pour accélérer la validation de notre Pull Request
 -->
 
-<!-- What changes are being made? (What feature/bug is being fixed here?) -->
+<!-- Quels sont les changements apportés ? (Quelle est la caractéristique/le bug qui est corrigé ici ?) -->
 
-**What**:
+**Changement**:
 
-<!-- Why are these changes necessary? -->
+**Pourquoi**:
 
-**Why**:
+**Comment**:
 
-<!-- How were these changes implemented? -->
+**Todo list**:
 
-**How**:
-
-<!-- Have you done all of these things?  -->
-
-**Checklist**:
-
--   [ ] Documentation added to the README.md file
+-   [ ] Documentation ajoutée dans le README.md
 -   [ ] Tests
--   [ ] RFR, Ready for review label
+-   [ ] RFR (Ready For Review) label
 
-<!-- feel free to add additional comments -->
+<!-- N'hésitez pas à ajouter des commentaires supplémentaires et/ou une capture d'écran -->

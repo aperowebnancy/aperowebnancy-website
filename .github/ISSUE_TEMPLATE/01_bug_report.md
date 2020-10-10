@@ -1,37 +1,31 @@
 ---
-name: 🐛 Bug Report
-about: Bugs, missing documentation, or unexpected behavior 🤔.
+name: 🐛 Rapport de Bug
+about: Bugs, documentation manquante ou comportement inattendu 🤔.
 labels: 'bug'
 ---
 
 <!--
-  Please provide a clear and concise description of what the bug is. Include
-  screenshots if needed. Please test using the latest version.
+  Veuillez fournir une description claire et concise du bug. Inclure
+  des captures d'écran si nécessaire. Veuillez tester en utilisant la dernière version.
 -->
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Décrivez le bug**
 
-**To Reproduce**
-Steps to reproduce the behavior:
+**Reproduction**
+Étapes pour reproduire le comportement:
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+1. Allez sur '...'
+2. Cliquer sur '....'
+3. Scroll à '....'
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Comportement attendu**
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
 
 **Desktop or Smartphone**
 
 -   OS: [e.g. iOS]
 -   Device: [e.g. iPhone6]
 -   Browser [e.g. chrome, safari]
--   Version [e.g. 22]
 
-**Additional context**
-Add any other context about the problem here.
+**Contexte supplémentaire**

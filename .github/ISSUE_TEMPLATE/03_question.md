@@ -1,9 +1,9 @@
 ---
 name: ❓ Question
-about: Ask a question not related to implementation here
+about: Posez ici une question sans rapport avec l'implémentation d'une feature
 labels: 'question'
 ---
 
-🚨 The issue tracker is not for implementation questions 🚨
+🚨 Le "Issue Tracker" n'est pas destiné aux questions sur l'implémentation d'une feature 🚨
 
-You can ask question to Discord or during Meetup event too.
+Vous pouvez également poser des questions sur Discord ou aprés un Meetup.
