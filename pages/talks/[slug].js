@@ -9,10 +9,10 @@ import matter from 'gray-matter';
 import MDX from '@mdx-js/runtime';
 
 import { siteConfig } from '../../lib/siteConfig';
-
-import { MeetupIcon, ShareIcon, TwitterIcon } from '../../components/Icons';
+import { ShareIcon, MeetupIcon, TwitterIcon } from '../../components/Icons';
 import { Seo } from '../../components/Seo';
 import { SpeakerLinks } from '../../components/SpeakerLinks';
+import { WebMentions } from '../../components/WebMentions';
 import { WebMentionCounter } from '../../components/WebMentionCounter';
 import { Youtube } from '../../components/Youtube';
 
@@ -112,11 +112,11 @@ ShareMore.propTypes = {
 export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previous }) {
     const talkJsonLd = getTalkJsonLd({ ...frontMatter, slug, image: '', speakers });
 
+    const postUrl = `${siteConfig.siteUrl}/talks/${slug}`;
+
     const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         frontMatter.title,
-    )}&via=${siteConfig.twitterHandler.replace('@', '')}&url=${encodeURIComponent(
-        `${siteConfig.siteUrl}/talks/${slug}`,
-    )}`;
+    )}&via=${siteConfig.twitterHandler.replace('@', '')}&url=${encodeURIComponent(postUrl)}`;
 
     const githubTalkUrl = `https://github.com/aperowebnancy/aperowebnancy-website/blob/main/talks/${frontMatter.date}_${slug}.mdx`;
 
@@ -197,6 +197,9 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                         <div className="prose max-w-none pt-10 pb-8">
                             <div dangerouslySetInnerHTML={{ __html: mdxHtml }} />
                         </div>
+                        <div className="pt-6 pb-6">
+                            <WebMentions target={postUrl} />
+                        </div>
                         <div className="pt-6 pb-8 xl:pb-0">
                             <p>
                                 Une faute ? Une amélioration ?{' '}
@@ -241,7 +244,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                                 <ShareMore title={frontMatter.title} slug={slug} />
                             </div>
                             <div className="text-blue-500 flex space-x-2">
-                                <WebMentionCounter target={`${siteConfig.siteUrl}/talks/${slug}`} />
+                                <WebMentionCounter target={postUrl} />
                             </div>
                         </div>
                         {(next || previous) && (

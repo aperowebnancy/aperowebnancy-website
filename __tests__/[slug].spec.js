@@ -9,6 +9,20 @@ jest.mock('next/router', () => ({
     })),
 }));
 
+jest.mock('../components/WebMentionCounter', () => ({
+    // eslint-disable-next-line react/prop-types
+    WebMentionCounter: function WebMentionCounter({ target }) {
+        return <p>WebMentionCounter {target}</p>;
+    },
+}));
+
+jest.mock('../components/WebMentions', () => ({
+    // eslint-disable-next-line react/prop-types
+    WebMentions: function WebMentions({ target }) {
+        return <p>WebMentions {target}</p>;
+    },
+}));
+
 describe('Talk Components', () => {
     beforeEach(() => {
         jest.useFakeTimers('modern');
@@ -101,16 +115,17 @@ describe('Talk Components', () => {
             expect(screen.getByText('zero talk #0')).toBeInTheDocument();
         });
 
-        it('should render web mentions', () => {
-            const talk = {
-                ...defaultTalk,
-            };
+        it('should render web mentions components', () => {
+            render(<Talk {...defaultTalk} />);
 
-            render(<Talk {...talk} />);
-
-            expect(screen.getByText("0 j'aime")).toBeInTheDocument();
-            expect(screen.getByText('0 réponse')).toBeInTheDocument();
-            expect(screen.getByText('0 partage')).toBeInTheDocument();
+            expect(
+                screen.getByText(
+                    'WebMentionCounter https://aperowebnancy.netlify.app/talks/a-new-talk',
+                ),
+            ).toBeInTheDocument();
+            expect(
+                screen.getByText('WebMentions https://aperowebnancy.netlify.app/talks/a-new-talk'),
+            ).toBeInTheDocument();
         });
     });
 
