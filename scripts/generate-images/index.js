@@ -6,7 +6,7 @@ const matter = require('gray-matter');
 
 const { getHtml } = require('./template');
 
-const isHeadless = false; // set to false for debug
+const isHeadless = true; // set to false for debug
 
 function getAllTalks() {
     const files = glob.sync('talks/*.mdx');
