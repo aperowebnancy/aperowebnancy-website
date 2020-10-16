@@ -32,6 +32,29 @@ function getAllTalks() {
     return orderedByDate;
 }
 
+function getAllSpeakers() {
+    const files = glob.sync('speakers/*.mdx');
+
+    const allMdx = files.map((file) => {
+        const [_, filename] = file.split('/');
+        const [slug] = filename.split('.');
+
+        const mdxSource = fs.readFileSync(file);
+        const { data } = matter(mdxSource);
+
+        return {
+            slug,
+            frontMatter: data,
+        };
+    });
+
+    const orderedByLastName = allMdx.sort((a, z) =>
+        a.frontMatter.lastName.localeCompare(z.frontMatter.lastName),
+    );
+
+    return orderedByLastName;
+}
+
 async function generateImages() {
     console.warn('--- START ---');
 
@@ -40,8 +63,26 @@ async function generateImages() {
     });
     const page = await browser.newPage();
     page.setViewport({ width: 1200, height: 628 });
+
     console.warn('generate images...');
-    const talks = getAllTalks();
+
+    const speakers = getAllSpeakers();
+    const talks = getAllTalks().map((talk) => ({
+        ...talk,
+        speakers: speakers
+            .filter(
+                (speaker) =>
+                    talk.frontMatter.speakers && talk.frontMatter.speakers.includes(speaker.slug),
+            )
+            .map((speaker) => {
+                const image = fs
+                    .readFileSync(
+                        `${__dirname}/../../public/speakers/${speaker.frontMatter.picture}`,
+                    )
+                    .toString('base64');
+                return { ...speaker, image };
+            }),
+    }));
 
     for (const talk of talks) {
         const filePath = path.resolve(__dirname, `../../public/og_image/${talk.slug}.png`);

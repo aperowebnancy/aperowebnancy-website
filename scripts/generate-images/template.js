@@ -34,7 +34,7 @@ function getCss(titleFontSize) {
             justify-content: space-between;
         }
 
-        section {
+        .talk {
             position: absolute;
             width: 690px;
             right: 70px;
@@ -65,14 +65,40 @@ function getCss(titleFontSize) {
             font-size: 33px;
             letter-spacing: 1px;
         }
+
+        .speakers {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            width: 1100px;
+            right: 70px;
+            bottom: 50px;
+            font-size: 20px;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .speakers > article {
+            display: flex;
+            align-items: center;
+            margin: auto 20px;
+        }
+
+        .speakers > article > img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            margin-right: 10px;
+        }
     `;
 }
 
-const LETTER_BY_LINE = 100;
+const LETTER_BY_LINE = 80;
 const MIN_SIZE_VIEWPORT = 3;
-const MAX_SIZE_VIEWPORT = 8;
+const MAX_SIZE_VIEWPORT = 7;
 
-function getHtml({ date, frontMatter }) {
+function getHtml({ date, frontMatter, speakers }) {
     const titleFontSize =
         Math.min(
             MAX_SIZE_VIEWPORT,
@@ -92,7 +118,7 @@ function getHtml({ date, frontMatter }) {
             </head>
             <body>
                <div class="bodywrapper">
-                    <section>
+                    <section class="talk">
                         <div class="live">Youtube</div>
                         <div class="title">${frontMatter.title}</div>
                         <div class="date">
@@ -106,7 +132,24 @@ function getHtml({ date, frontMatter }) {
                         <div class="hour">
                             de 19h à 21h
                         </div>
-                    </section
+                    </section>
+                    ${
+                        speakers
+                            ? `
+                            <section class="speakers">
+                                ${speakers
+                                    .map(
+                                        (speaker) =>
+                                            `<article>
+                                                <img src="data:image/png;base64,${speaker.image}" />
+                                                ${speaker.frontMatter.firstName} ${speaker.frontMatter.lastName}
+                                            </article>
+                                        `,
+                                    )
+                                    .join('')}
+                            </section>`
+                            : ``
+                    }
                 </div>
             </body>
         </html>
