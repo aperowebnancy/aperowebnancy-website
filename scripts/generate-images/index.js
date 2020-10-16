@@ -7,6 +7,7 @@ const matter = require('gray-matter');
 const { getHtml } = require('./template');
 
 const isHeadless = true; // set to false for debug
+const force = false; // set to true for generate all images even the image already generate
 
 function getAllTalks() {
     const files = glob.sync('talks/*.mdx');
@@ -86,7 +87,7 @@ async function generateImages() {
 
     for (const talk of talks) {
         const filePath = path.resolve(__dirname, `../../public/og_image/${talk.slug}.png`);
-        if (fs.existsSync(filePath)) {
+        if (fs.existsSync(filePath) && !force) {
             continue;
         }
 
