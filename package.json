@@ -7,7 +7,7 @@
         "test:watch": "jest --watch",
         "test": "jest",
         "build": "next build",
-        "postbuild": "next-sitemap",
+        "postbuild": "next-sitemap && node ./scripts/generate-images/index.js",
         "export": "next export && yarn build:rss",
         "build:rss": "node ./.next/server/scripts/build-rss.js",
         "start": "next start",
