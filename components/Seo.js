@@ -11,7 +11,7 @@ export function Seo({ title, description, image, jsonLdArray = [] }) {
     const metaTitle = title || 'Apéro Web Nancy';
     const metaDescription =
         description || 'Apéro Web Nancy est un meetup mensuel autour des technos du Web à Nancy';
-    const metaImage = image ? image : `${siteConfig.siteUrl}/logo.png`;
+    const metaImage = image ? image : `${siteConfig.siteUrl}/generic-og-image.png`;
 
     // https://schema.org/WebSite
     const jsonLdSchema = [
