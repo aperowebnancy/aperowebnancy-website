@@ -146,6 +146,30 @@ describe('Index Components', () => {
             expect(screen.getByText('En ligne')).toBeInTheDocument();
             expect(screen.getByText('james bond')).toBeInTheDocument();
         });
+
+        it('should render correct future talk without speakers part', () => {
+            const talk = {
+                date: new Date('2020-10-17').toISOString(),
+                slug: 'a-new-talk',
+                frontMatter: {
+                    title: 'A new talk',
+                    edition: 1,
+                },
+            };
+            const speakers = [];
+
+            render(<FutureTalk talk={talk} speakers={speakers} />);
+
+            expect(
+                screen.getByRole('heading', {
+                    level: 3,
+                    name: 'Prochain meetup: A new talk',
+                }),
+            ).toBeInTheDocument();
+            expect(screen.getByText('17 octobre 2020')).toBeInTheDocument();
+            expect(screen.getByText('En ligne')).toBeInTheDocument();
+            expect(screen.queryByText('Speaker')).toBeNull();
+        });
     });
 
     afterEach(() => {

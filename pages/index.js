@@ -38,16 +38,18 @@ export function FutureTalk({ talk, speakers }) {
                     <span>En ligne</span>
                 </div>
 
-                <div className="flex items-center">
-                    <PeopleIcon />
-                    <span className="sr-only">Speaker</span>
-                    {speakers.map(({ slug, frontMatter }, index) => (
-                        <React.Fragment key={slug}>
-                            {index > 0 ? ', ' : ''}
-                            {frontMatter.firstName} {frontMatter.lastName}
-                        </React.Fragment>
-                    ))}
-                </div>
+                {speakers.length > 0 && (
+                    <div className="flex items-center">
+                        <PeopleIcon />
+                        <span className="sr-only">Speaker</span>
+                        {speakers.map(({ slug, frontMatter }, index) => (
+                            <React.Fragment key={slug}>
+                                {index > 0 ? ', ' : ''}
+                                {frontMatter.firstName} {frontMatter.lastName}
+                            </React.Fragment>
+                        ))}
+                    </div>
+                )}
             </div>
         </React.Fragment>
     );
