@@ -110,7 +110,8 @@ ShareMore.propTypes = {
 };
 
 export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previous }) {
-    const talkJsonLd = getTalkJsonLd({ ...frontMatter, slug, image: '', speakers });
+    const image = `${siteConfig.siteUrl}/og_image/${slug}.png`;
+    const talkJsonLd = getTalkJsonLd({ ...frontMatter, slug, image, speakers });
 
     const postUrl = `${siteConfig.siteUrl}/talks/${slug}`;
 
@@ -126,6 +127,7 @@ export default function Talk({ mdxHtml, frontMatter, speakers, slug, next, previ
                 title={frontMatter.title}
                 description={frontMatter.description}
                 jsonLdArray={talkJsonLd}
+                image={image}
             />
             <Head>
                 <meta property="og:type" content="article" key="ogtype" />

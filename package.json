@@ -7,10 +7,11 @@
         "test:watch": "jest --watch",
         "test": "jest",
         "build": "next build",
-        "postbuild": "next-sitemap",
+        "postbuild": "next-sitemap && node ./scripts/generate-images/index.js",
         "export": "next export && yarn build:rss",
         "build:rss": "node ./.next/server/scripts/build-rss.js",
         "start": "next start",
+        "generate-images": "node scripts/generate-images/index.js",
         "doctoc": "doctoc ./.github/CONTRIBUTING.md",
         "lint": "eslint .",
         "format": "prettier --write --check \"**/*.+(js|md|mdx|json)\""
@@ -45,6 +46,7 @@
         "next-sitemap": "^1.2.4",
         "postcss-preset-env": "^6.7.0",
         "prettier": "^2.0.5",
+        "puppeteer": "^5.3.1",
         "rss": "^1.2.2",
         "tailwindcss": "^1.7.2"
     },
