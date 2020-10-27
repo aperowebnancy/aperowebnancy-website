@@ -57,6 +57,8 @@ Bien que nous ayons déjà un logo, il ne demande qu'à évoluer.
 
 Cela peut-être une occasion de collaboration entre développeurs/intégrateur/designer/ergonome...
 
+Nous avons un [Google Drive](https://drive.google.com/drive/folders/1tF5m4W6BPg3BFIoKAwDfkqYQAdaEhY3d?usp=sharing), qui contient les différentes assets pour le design.
+
 Les issues concernant le design sont associées au tag [`design`](https://github.com/aperowebnancy/aperowebnancy-website/labels/design).
 
 ### Contribuer au code
