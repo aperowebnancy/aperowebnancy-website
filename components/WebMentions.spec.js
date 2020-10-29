@@ -4,12 +4,6 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { WebMentions } from './WebMentions';
 
 describe('WebMentions Components', () => {
-    describe('Timezones', () => {
-        it('should always be UTC+2', () => {
-            expect(new Date().getTimezoneOffset()).toBe(-120);
-        });
-    });
-
     describe('<WebMentions />', () => {
         it('should render id="mentions" on root element for anchor', async () => {
             const { container } = render(<WebMentions target="all" />);
