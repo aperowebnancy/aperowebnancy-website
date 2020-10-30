@@ -7,7 +7,7 @@ const matter = require('gray-matter');
 const { getHtml } = require('./template');
 
 const isHeadless = true; // set to false for debug
-const force = false; // set to true for generate all images even the image already generate
+const force = true; // set to true for generate all images even the image already generate
 
 function getAllTalks() {
     const files = glob.sync('talks/*.mdx');
