@@ -34,3 +34,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+## Apéro Web
+/public/og_image/
