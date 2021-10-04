@@ -2,7 +2,6 @@ import fs from 'fs';
 import glob from 'fast-glob';
 import Link from 'next/link';
 import Head from 'next/head';
-import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom/server';
 import matter from 'gray-matter';

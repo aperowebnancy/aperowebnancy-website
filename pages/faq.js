@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { siteConfig } from '../lib/siteConfig';
 import { Seo } from '../components/Seo';

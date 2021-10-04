@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 const initialCounts = {
@@ -24,10 +24,10 @@ function Separator() {
 const pluralize = (word, count) => `${word}${count > 1 ? 's' : ''}`;
 
 export function WebMentionCounter({ target }) {
-    const [counts, setCounts] = useState(initialCounts);
+    const [counts, setCounts] = React.useState(initialCounts);
 
     // Get counts on `target` change
-    useEffect(() => {
+    React.useEffect(() => {
         const getCounts = async () => {
             const responseCounts = await fetchCounts(target);
             setCounts((previousCounts) => {
