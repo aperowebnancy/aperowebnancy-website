@@ -1,5 +1,4 @@
-import React from 'react';
-import { render, screen, getByText, within } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 
 import Home, { FutureTalk } from '../pages/index';
 
@@ -70,10 +69,12 @@ describe('Index Components', () => {
             ];
 
             valuesTalks.forEach(([title, date]) => {
-                const li = getByText(listTalks, title).closest('li');
-                const utils = within(li);
-                expect(utils.getByText(title)).toBeInTheDocument();
-                expect(utils.getByText(date)).toBeInTheDocument();
+                const ul = within(listTalks);
+
+                // eslint-disable-next-line testing-library/no-node-access
+                const li = within(ul.getByText(title).closest('li'));
+                expect(li.getByText(title)).toBeInTheDocument();
+                expect(li.getByText(date)).toBeInTheDocument();
             });
         });
 
@@ -109,12 +110,15 @@ describe('Index Components', () => {
             ];
 
             valuesTalks.forEach(([title, date, isNextTalk]) => {
-                const li = getByText(listTalks, title).closest('li');
-                const utils = within(li);
-                expect(utils.getByText(title)).toBeInTheDocument();
-                expect(utils.getByText(date)).toBeInTheDocument();
+                const ul = within(listTalks);
+
+                // eslint-disable-next-line testing-library/no-node-access
+                const li = within(ul.getByText(title).closest('li'));
+                expect(li.getByText(title)).toBeInTheDocument();
+                expect(li.getByText(date)).toBeInTheDocument();
                 if (isNextTalk) {
-                    expect(utils.getByText('Inscrivez-vous !')).toBeInTheDocument();
+                    // eslint-disable-next-line jest/no-conditional-expect
+                    expect(li.getByText('Inscrivez-vous !')).toBeInTheDocument();
                 }
             });
         });
@@ -168,7 +172,7 @@ describe('Index Components', () => {
             ).toBeInTheDocument();
             expect(screen.getByText('17 octobre 2020')).toBeInTheDocument();
             expect(screen.getByText('En ligne')).toBeInTheDocument();
-            expect(screen.queryByText('Speaker')).toBeNull();
+            expect(screen.queryByText('Speaker')).not.toBeInTheDocument();
         });
     });
 

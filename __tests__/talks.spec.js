@@ -1,5 +1,4 @@
-import React from 'react';
-import { render, screen, getByText } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 
 import Talks from '../pages/talks';
 
@@ -84,11 +83,11 @@ describe('Talks Components', () => {
             ];
 
             valuesTalks.forEach(({ title, date, description, edition }, index) => {
-                const article = listTalks[index];
-                expect(getByText(article, edition)).toBeInTheDocument();
-                expect(getByText(article, title)).toBeInTheDocument();
-                expect(getByText(article, date)).toBeInTheDocument();
-                expect(getByText(article, description)).toBeInTheDocument();
+                const article = within(listTalks[index]);
+                expect(article.getByText(title)).toBeInTheDocument();
+                expect(article.getByText(date)).toBeInTheDocument();
+                expect(article.getByText(description)).toBeInTheDocument();
+                expect(article.getByText(edition)).toBeInTheDocument();
             });
         });
 
@@ -159,15 +158,17 @@ describe('Talks Components', () => {
             ];
 
             valuesTalks.forEach(({ title, date, description, edition, statusTalk }, index) => {
-                const article = listTalks[index];
-                expect(getByText(article, edition)).toBeInTheDocument();
-                expect(getByText(article, title)).toBeInTheDocument();
-                expect(getByText(article, date)).toBeInTheDocument();
-                expect(getByText(article, description)).toBeInTheDocument();
+                const article = within(listTalks[index]);
+                expect(article.getByText(edition)).toBeInTheDocument();
+                expect(article.getByText(title)).toBeInTheDocument();
+                expect(article.getByText(date)).toBeInTheDocument();
+                expect(article.getByText(description)).toBeInTheDocument();
 
                 if (statusTalk) {
-                    expect(getByText(article, statusTalk)).toBeInTheDocument();
-                    expect(getByText(article, 'Inscrivez-vous !')).toBeInTheDocument();
+                    // eslint-disable-next-line jest/no-conditional-expect
+                    expect(article.getByText(statusTalk)).toBeInTheDocument();
+                    // eslint-disable-next-line jest/no-conditional-expect
+                    expect(article.getByText('Inscrivez-vous !')).toBeInTheDocument();
                 }
             });
         });

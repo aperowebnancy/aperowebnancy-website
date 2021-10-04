@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { siteConfig } from '../lib/siteConfig';
 import {
     RssFeedIcon,

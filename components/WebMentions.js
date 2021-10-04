@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import { HeartIcon, QuestionMarkIcon, RePostIcon } from './Icons';
@@ -20,10 +20,10 @@ async function getMentions(target) {
 }
 
 export function WebMentions({ target }) {
-    const [showMentions, setShowMentions] = useState(false);
-    const [mentions, addMentions] = useState([]);
+    const [showMentions, setShowMentions] = React.useState(false);
+    const [mentions, addMentions] = React.useState([]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const fetchMentions = async () => {
             const olderMentions = await getMentions(target);
             addMentions((mentions) => [...mentions, ...olderMentions]);

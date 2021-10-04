@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { GitHubIcon, LinkedinIcon, TwitterIcon, PersonalIcon } from './Icons';
 import PropTypes from 'prop-types';
 

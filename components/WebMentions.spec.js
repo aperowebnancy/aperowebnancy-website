@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 import { WebMentions } from './WebMentions';
@@ -6,10 +5,10 @@ import { WebMentions } from './WebMentions';
 describe('WebMentions Components', () => {
     describe('<WebMentions />', () => {
         it('should render id="mentions" on root element for anchor', async () => {
-            const { container } = render(<WebMentions target="all" />);
+            render(<WebMentions target="all" />);
             await screen.findByText('1');
 
-            expect(container.querySelector('#mentions')).toBeInTheDocument();
+            expect(screen.getByRole('heading', 'Webmentions')).toBeInTheDocument();
         });
 
         it('should render default web mentions', async () => {
@@ -58,6 +57,7 @@ describe('WebMentions Components', () => {
 
             const imageTag = screen.getByAltText('james bond', { exact: false });
             expect(imageTag).toHaveAttribute('src', 'https://james.bond/photo');
+            // eslint-disable-next-line testing-library/no-node-access
             expect(imageTag.closest('a')).toHaveAttribute('href', 'https://james.bond/url');
 
             const typeLink = screen.getByText('mentionne');
@@ -80,6 +80,7 @@ describe('WebMentions Components', () => {
 
             const imageTag = screen.getByAltText('captain marvel', { exact: false });
             expect(imageTag).toHaveAttribute('src', 'https://captain.marvel/photo');
+            // eslint-disable-next-line testing-library/no-node-access
             expect(imageTag.closest('a')).toHaveAttribute('href', 'https://captain.marvel/url');
 
             const typeLink = screen.getByText('répond');
