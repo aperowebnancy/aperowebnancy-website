@@ -62,7 +62,7 @@ export function Seo({ title, description, image, jsonLdArray = [] }) {
             <meta name="twitter:image" content={metaImage} />
             <meta name="twitter:url" content={`${siteConfig.siteUrl}${router.asPath}`} />
             {/* Schema.org JSON-LD */}
-            <script type="application/ld+json">{JSON.stringify(jsonLdSchema)}</script>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }} />
 
             {/* Favicon & Images */}
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
